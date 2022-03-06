@@ -266,7 +266,7 @@ namespace SAIVista
             else
             {
 
-
+                validarCampos();
 
                 //lleno el arreglo con los datos obtenidos en la vista para luego enviarlos al controlador  
                 datosID = oControlador.datosCbxCategoria();
@@ -415,7 +415,9 @@ namespace SAIVista
 
 
             }
-            else { errorProvider1.Clear(); }
+            else { errorProvider1.Clear();
+                MessageBox.Show("nada");
+            }
             
 
             }
