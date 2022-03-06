@@ -310,7 +310,7 @@ namespace SAIVista
             int comprobar1;
 
             comprobar1 = cbxCategoria.Items.Count;
-            MessageBox.Show(""+comprobar1);
+            //MessageBox.Show(""+comprobar1);
             if (comprobar1 == 0)
             {
                 d = oControlador.datosCbxCategoria();

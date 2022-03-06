@@ -60,50 +60,53 @@ namespace SAIModelo
             
 
             string[,] datos;
-           
 
-           
+            
+
                 obj.getConexionDB().Open();
 
                 consultaSQL = "SELECT id_categoria, nombreCategoria FROM tbCategoria";
                 comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
                 lector = comandoConexion.ExecuteReader();
 
-            /*while (lector.Read()) {
-
-                j++;
-            }*/
 
 
                 while (lector.Read())
                 {
 
-                listaArrayID.Add((string)lector["id_categoria"].ToString());
-                listaArrayCategoria.Add((string)lector["nombreCategoria"]);
-                    
+                    listaArrayID.Add((string)lector["id_categoria"].ToString());
+                    listaArrayCategoria.Add((string)lector["nombreCategoria"]);
+
                 }
                 lector.Close();
                 obj.getConexionDB().Close();
 
-            datos = new string [listaArrayCategoria.Count,2];
+                datos = new string[listaArrayCategoria.Count, 2];
+
+
+                for (int k = 0; k < listaArrayCategoria.Count; k++)
+                {
+                    for (int i = 0; i <= 0; i++)
+                    {
+
+                        datos[k, i] = listaArrayID[k].ToString();
+
+                    }
+                    for (int j = 1; j <= 1; j++)
+                    {
+                        datos[k, j] = (string)listaArrayCategoria[k];
+                    }
+
+                }
+
+                // Console.WriteLine(datos[0]+"este dato trajo");
+
+                return datos;
+
            
 
-            for (int k = 0; k < listaArrayCategoria.Count; k++) {
-                for (int i = 0; i <= 0; i++) {
+            
 
-                    datos[k, i] = listaArrayID[k].ToString(); 
-                
-                }
-                for (int j = 1; j <= 1; j++)
-                {
-                    datos[k,j] = (string)listaArrayCategoria[k];
-                }
-
-            }
-                
-               // Console.WriteLine(datos[0]+"este dato trajo");
-
-            return datos;
         }
 
 
