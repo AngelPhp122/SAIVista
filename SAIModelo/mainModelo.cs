@@ -127,18 +127,18 @@ namespace SAIModelo
 
             var listaProductoID = new List<string>();
             var listaCategoriaID = new List<string>();
-            var listaImagenID = new List<string>();
-            var listaUsuarioID = new List<string>();
+            //var listaImagenID = new List<string>();
+            //var listaUsuarioID = new List<string>();
             var listaNombreArt = new List<string>();
             var listaDescripcion = new List<string>();
             var listaCantidad = new List<string>();
             var listaPrecio = new List<string>();
-            var listaFechaCap = new List<string>();
+            //var listaFechaCap = new List<string>();
 
             
             obj.getConexionDB().Open();
 
-            consultaSQL = "select * from tbArticulos";
+            consultaSQL = "select id_producto, id_categoria, nombreArticulo, descripcionArt, cantidad, precio from tbArticulos";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
 
@@ -148,20 +148,21 @@ namespace SAIModelo
 
                 listaProductoID.Add((string)lector["id_producto"].ToString());
                 listaCategoriaID.Add((string)lector["id_categoria"].ToString());
-                listaImagenID.Add((string)lector["id_imagen"].ToString());
-                listaUsuarioID.Add((string)lector["id_usuario"].ToString());
+                //listaImagenID.Add((string)lector["id_imagen"].ToString());
+                //listaUsuarioID.Add((string)lector["id_usuario"].ToString());
                 listaNombreArt.Add((string)lector["nombreArticulo"]);
                 listaDescripcion.Add((string)lector["descripcionArt"]);
                 listaCantidad.Add((string)lector["cantidad"].ToString());
                 listaPrecio.Add((string)lector["precio"].ToString());
-                listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
+                //listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
 
             }
             lector.Close();
             obj.getConexionDB().Close();
-            
 
-            datosDtgArticulos = new string[listaProductoID.Count,9];
+            Console.WriteLine(listaPrecio.Count);
+
+            datosDtgArticulos = new string[listaProductoID.Count,6];
 
             for (int i = 0; i < listaProductoID.Count; i++)
             {
@@ -169,18 +170,19 @@ namespace SAIModelo
                 
                     datosDtgArticulos[i,0] = listaProductoID[i];
                     datosDtgArticulos[i,1] = listaCategoriaID[i];
-                    datosDtgArticulos[i,2] = listaImagenID[i];
-                    datosDtgArticulos[i,3] = listaUsuarioID[i];
-                    datosDtgArticulos[i,4] = listaNombreArt[i];
-                    datosDtgArticulos[i,5] = listaDescripcion[i];
-                    datosDtgArticulos[i,6] = listaCantidad[i];
-                    datosDtgArticulos[i,7] = listaPrecio[i];
-                datosDtgArticulos[i, 8] = listaFechaCap[i];
+                    //datosDtgArticulos[i,2] = listaImagenID[i];
+                    //datosDtgArticulos[i,3] = listaUsuarioID[i];
+                    datosDtgArticulos[i,2] = listaNombreArt[i];
+                    datosDtgArticulos[i,3] = listaDescripcion[i];
+                    datosDtgArticulos[i,4] = listaCantidad[i];
+                    datosDtgArticulos[i,5] = listaPrecio[i];
+                    //datosDtgArticulos[i, 8] = listaFechaCap[i];
 
 
                 
             }
 
+            Console.WriteLine(datosDtgArticulos.Length);
             return datosDtgArticulos;
         }
 

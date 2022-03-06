@@ -319,87 +319,121 @@ namespace SAIVista
         private void frmProductos_Load(object sender, EventArgs e)
         {
             string[,] d;
-
-
-            //validacion de combobox vacio
-            int comprobar1;
-
-            comprobar1 = cbxCategoria.Items.Count;
-            
-            if (comprobar1 == 0)
+            try
             {
-                d = oControlador.datosCbxCategoria();
 
-                datos2 = new string[d.Length / 2];
+                //validacion de combobox vacio
+                int comprobar1;
 
-                for (int i = 0; i < (d.Length / 2); i++)
+                comprobar1 = cbxCategoria.Items.Count;
+
+                if (comprobar1 == 0)
                 {
+                    d = oControlador.datosCbxCategoria();
 
-                    //cbxCategoria.DataSource = d;
-                    cbxCategoria.Items.Add(d[i, 1]);
-                    datos2[i] = d[i, 0];
+                    datos2 = new string[d.Length / 2];
 
-                    //cbxCategoria.ValueMember = d[i, 0];
+                    for (int i = 0; i < (d.Length / 2); i++)
+                    {
 
+                        //cbxCategoria.DataSource = d;
+                        cbxCategoria.Items.Add(d[i, 1]);
+                        datos2[i] = d[i, 0];
+
+                        //cbxCategoria.ValueMember = d[i, 0];
+
+
+                    }
 
                 }
+            }
+            catch (Exception ex) {
 
+                MessageBox.Show(ex.Message);
             }
 
 
             //DatagrewView
 
-            string[,] c;
+
             int comprobar;
 
+            try
+            {
 
-            comprobar = dtgArticulos.Rows.Count;
+                comprobar = dtgArticulos.Rows.Count;
 
-            DataGridViewTextBoxColumn c1 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c2 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c3 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c4 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c5 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c6 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c7 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c1 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c2 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c3 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c4 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c5 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn c6 = new DataGridViewTextBoxColumn();
+                // DataGridViewTextBoxColumn c7 = new DataGridViewTextBoxColumn();
+                //DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
+                //DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
 
-            //estructura de control que no permite la duplicacion de la tabla
-            if (comprobar <= 0) { 
+                //estructura de control que no permite la duplicacion de la tabla
+                if (comprobar == 0)
+                {
 
-            c1.HeaderText = "id producto";
-            c2.HeaderText = "id categoria";
-            c3.HeaderText = "id imagen";
-            c4.HeaderText = "id usuario";
-            c5.HeaderText = "nombre articulo";
-            c6.HeaderText = "descripcion";
-            c7.HeaderText = "cantidad";
-            c8.HeaderText = "precio";
-            c9.HeaderText = "fecha de ingreso";
+                    c1.HeaderText = "id producto";
+                    c2.HeaderText = "categoria";
+                    //c3.HeaderText = "id imagen";
+                    //c4.HeaderText = "id usuario";
+                    c3.HeaderText = "nombre articulo";
+                    c4.HeaderText = "descripcion";
+                    c5.HeaderText = "cantidad";
+                    c6.HeaderText = "precio";
+                    // c7.HeaderText = "imagen";
 
-            dtgArticulos.Columns.Add(c1);
-            dtgArticulos.Columns.Add(c2);
-            dtgArticulos.Columns.Add(c3);
-            dtgArticulos.Columns.Add(c4);
-            dtgArticulos.Columns.Add(c5);
-            dtgArticulos.Columns.Add(c6);
-            dtgArticulos.Columns.Add(c7);
-            dtgArticulos.Columns.Add(c8);
-            dtgArticulos.Columns.Add(c9);
+                    dtgArticulos.Columns.Add(c1);
+                    dtgArticulos.Columns.Add(c2);
+                    dtgArticulos.Columns.Add(c3);
+                    dtgArticulos.Columns.Add(c4);
+                    dtgArticulos.Columns.Add(c5);
+                    dtgArticulos.Columns.Add(c6);
+                    //dtgArticulos.Columns.Add(c7);
+                    //dtgArticulos.Columns.Add(c8);
+                    //dtgArticulos.Columns.Add(c9);
+                    string[,] c;
+                    c = oControlador.datosDtgArticulos();
+                    
+                    if (c.GetLength(0) >= 0)
+                    {
+                        for (int i = 0; i < c.GetLength(0); i++)
+                        {
 
-        }
+                            dtgArticulos.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5]);
 
-            c = oControlador.datosDtgArticulos();
-            for (int i = 0; i < (c.Length / 9); i++) {
 
-                dtgArticulos.Rows.Add(c[i,0], c[i,1], c[i, 2], c[i, 3], c[i, 4], c[i, 5], c[i, 6], c[i, 7], c[i, 8]);
-                
+                        }
+                    }
+                }
+                else
+                {
+                    
+                    
+                    string[,] c;
+                    
+                    c = oControlador.datosDtgArticulos();
+
+                    int indiceA = c.GetLength(0) - 1;
+
+                 
+                    dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5]);
+                    
+                }
+
+
+
 
             }
-
-
-        }
+            catch (Exception ex) { 
+            
+                MessageBox.Show(ex.Message);
+            }
+            }
 
         
         //metodo para limpiar cajas.

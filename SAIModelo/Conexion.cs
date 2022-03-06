@@ -40,16 +40,7 @@ namespace SAIModelo
             return conexionDB;
         }
 
-        /*
-        public void setComandoConexion(SqlCommand conexionComando) { 
-        
-            comandoConexion = conexionComando;
-        }
-
-        public SqlCommand getComandoConexion() { 
-        
-            return comandoConexion;
-        }*/
+       
 
         public Conexion() {
 
@@ -57,30 +48,6 @@ namespace SAIModelo
             conexionDB = new SqlConnection(cadenaConexion);   
 
         }
-
-        /*public string[] leerDatos() {
-
-            conexionDB.Open();
-
-            consultaSQL = "select * from tbCategorias";
-            comandoConexion = new SqlCommand(consultaSQL,conexionDB);
-            lector = comandoConexion.ExecuteReader();
-            string [] arreglo = new string [4];
-
-            while (lector.Read()) {
-
-                arreglo[0] = (string)lector["id_categoria"].ToString();
-                arreglo[1] = (string)lector["id_usuario"].ToString();
-                arreglo[2] = (string)lector["nombreCategoria"];
-                arreglo[3] = (string)lector["fechaCaptura"].ToString();
-            }
-            lector.Close();
-            conexionDB.Close();
-            return arreglo;
-
-        }*/
-
-        
 
     }
 }

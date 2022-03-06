@@ -44,11 +44,12 @@ namespace SAIControlador
 
         //controlador para el llenado del dataGriewView
         //
-        public string[,] datosDtgArticulos() { 
-        
-        string[,]datos;
-        
+        public string[,] datosDtgArticulos() {
+
+            string[,] datos;
+
             datos = oModelo.datosDataGrieView();
+            Console.WriteLine("" + (datos.Length / 6));
 
             return datos;
 
