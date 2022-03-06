@@ -13,16 +13,17 @@ namespace SAIControlador
 
         
 
-        public void recibeDatos(string a, string b, string c, string d, string e) {
+        public void recibeDatos(string a, string b, string c, string d, string e, string f) {
 
-            string[] datos = new string[5];
+            string[] datos = new string[6];
             datos[0] = a;
             datos[1] = b;
             datos[2] = c;
             datos[3] = d;
             datos[4] = e;
-            Console.WriteLine(b + " estoy en el controlador");
-            oModelo.insertarDatos(datos[0], datos[1], datos[2], datos[3], datos[4]);
+            datos[5] = f;
+            
+            oModelo.insertarDatos(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
 
         }
 

@@ -14,6 +14,7 @@ namespace SAIVista
     {
         SAIControlador.mainController oControlador = new SAIControlador.mainController();
         private string []datos2;
+        private string rutaImagen;
 
         public frmProductos()
         {
@@ -43,6 +44,7 @@ namespace SAIVista
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lbIndexCat = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dtgArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -168,6 +170,7 @@ namespace SAIVista
             this.btnImagen.TabIndex = 12;
             this.btnImagen.Text = "Agregar archivo";
             this.btnImagen.UseVisualStyleBackColor = true;
+            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
             // 
             // dtgArticulos
             // 
@@ -219,6 +222,11 @@ namespace SAIVista
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Arcchivos JPG(*.JPG)|*.jpeg|Archivos PNG(*.png)|*.png";
+            // 
             // frmProductos
             // 
             this.ClientSize = new System.Drawing.Size(1079, 654);
@@ -253,7 +261,7 @@ namespace SAIVista
         //metodo del boton agregar para hacer una insercion en la tabla articulos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string[] datos = new string[5];
+            string[] datos = new string[6];
             string[,] datosID;
 
 
@@ -283,10 +291,13 @@ namespace SAIVista
                 datos[2] = tbDescripcion.Text;
                 datos[3] = tbCantidad.Text;
                 datos[4] = tbPrecio.Text;
+                datos[5] = rutaImagen;
+
+                
 
 
                 //envio los datos al controlador llamando el metodo por medio de la instancia (objeto)
-                oControlador.recibeDatos(datos[0], datos[1], datos[2], datos[3], datos[4]);
+                oControlador.recibeDatos(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
 
                 //limpiar cada elemento de la vista
                 limpiarCajas();
@@ -295,6 +306,10 @@ namespace SAIVista
                 //se hace la llamada al load del formulario para actualizar los registros una vez presiones el boton agregar
 
                 frmProductos_Load(sender, e);
+
+                //que dato trae el boton agregar imagen?
+
+                
 
             }
         
@@ -306,11 +321,11 @@ namespace SAIVista
             string[,] d;
 
 
-
+            //validacion de combobox vacio
             int comprobar1;
 
             comprobar1 = cbxCategoria.Items.Count;
-            //MessageBox.Show(""+comprobar1);
+            
             if (comprobar1 == 0)
             {
                 d = oControlador.datosCbxCategoria();
@@ -416,15 +431,26 @@ namespace SAIVista
 
             }
             else { errorProvider1.Clear();
-                MessageBox.Show("nada");
+                //MessageBox.Show("nada");
             }
             
 
             }
 
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+
+            
+
+            if (openFileDialog1.ShowDialog()==DialogResult.OK) {
+
+                rutaImagen = openFileDialog1.FileName;
+            }
+
 
 
         }
+    }
        
     }
 

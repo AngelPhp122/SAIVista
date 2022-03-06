@@ -26,7 +26,7 @@ namespace SAIModelo
 
 
         //*******metodo para la insercion de datos a la tabla articulos de la base de datos******
-        public void insertarDatos(string a, string b, string c, string d, string e) {
+        public void insertarDatos(string a, string b, string c, string d, string e, string f) {
 
             try
             {
@@ -39,17 +39,26 @@ namespace SAIModelo
                 comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
                 lector = comandoConexion.ExecuteReader();
 
-                lector.Close();
+                
                 obj.getConexionDB().Close();
+                lector.Close();
 
-                Console.WriteLine(consultaSQL);
+
+                insertarRutaImagen(f,a);
+               
 
             }
             catch (Exception error) {
 
                 Console.WriteLine(error.Message);
             }
+
+
+
         }
+
+
+       
 
         //metodo para llenar categorias al comboBox de la interfaz frmProductos
 
@@ -125,6 +134,7 @@ namespace SAIModelo
             var listaPrecio = new List<string>();
             var listaFechaCap = new List<string>();
 
+            
             obj.getConexionDB().Open();
 
             consultaSQL = "select * from tbArticulos";
@@ -146,9 +156,9 @@ namespace SAIModelo
                 listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
 
             }
-
-            obj.getConexionDB().Close();
             lector.Close();
+            obj.getConexionDB().Close();
+            
 
             datosDtgArticulos = new string[listaProductoID.Count,9];
 
@@ -171,6 +181,28 @@ namespace SAIModelo
             }
 
             return datosDtgArticulos;
+        }
+
+        //metodo para guardar ruta de la imagen en la base de datos
+        public void insertarRutaImagen(string rutaImg, string categoriImg)
+        {
+
+            try
+            {
+                obj.getConexionDB().Open();
+                consultaSQL = "INSERT INTO tbImagenes(id_categoria, nombreImagen, rutaImagen, fechaSubida) values('" + int.Parse(categoriImg) + "','" + rutaImg + "','" + rutaImg + "','"+fecha+"')";
+                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+                lector = comandoConexion.ExecuteReader();
+                lector.Close();
+                obj.getConexionDB().Close();
+            }
+            catch (Exception error)
+            {
+
+                Console.WriteLine(error.Message);
+
+            }
+
         }
 
     }

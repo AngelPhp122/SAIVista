@@ -51,6 +51,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lbIndexCat;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 
 }
