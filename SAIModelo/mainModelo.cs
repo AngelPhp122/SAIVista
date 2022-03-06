@@ -103,14 +103,14 @@ namespace SAIModelo
 
                 return datos;
 
-           
+
 
             
 
         }
 
 
-        //datos para el llenado del dataGreiwView
+        //datos para el llenado del dataGrigView
         public string[,] datosDataGrieView() {
 
             string [,]datosDtgArticulos;
