@@ -49,11 +49,14 @@ namespace SAIControlador
             string[,] datos;
 
             datos = oModelo.datosDataGrieView();
-            Console.WriteLine("" + (datos.Length / 6));
+            
 
             return datos;
 
         }
+
+
+       
         
         
 

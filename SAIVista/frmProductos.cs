@@ -292,7 +292,7 @@ namespace SAIVista
                 datos[3] = tbCantidad.Text;
                 datos[4] = tbPrecio.Text;
                 datos[5] = rutaImagen;
-
+                rutaImagen = "";
                 
 
 
@@ -369,7 +369,7 @@ namespace SAIVista
                 DataGridViewTextBoxColumn c4 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c5 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c6 = new DataGridViewTextBoxColumn();
-                // DataGridViewTextBoxColumn c7 = new DataGridViewTextBoxColumn();
+                DataGridViewImageColumn c7 = new DataGridViewImageColumn();
                 //DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
                 //DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
 
@@ -385,7 +385,7 @@ namespace SAIVista
                     c4.HeaderText = "descripcion";
                     c5.HeaderText = "cantidad";
                     c6.HeaderText = "precio";
-                    // c7.HeaderText = "imagen";
+                    c7.HeaderText = "imagen";
 
                     dtgArticulos.Columns.Add(c1);
                     dtgArticulos.Columns.Add(c2);
@@ -393,18 +393,21 @@ namespace SAIVista
                     dtgArticulos.Columns.Add(c4);
                     dtgArticulos.Columns.Add(c5);
                     dtgArticulos.Columns.Add(c6);
-                    //dtgArticulos.Columns.Add(c7);
+                    dtgArticulos.Columns.Add(c7);
                     //dtgArticulos.Columns.Add(c8);
                     //dtgArticulos.Columns.Add(c9);
                     string[,] c;
                     c = oControlador.datosDtgArticulos();
-                    
+                    //MessageBox.Show("arreglo c = "+c.GetLength(0));
                     if (c.GetLength(0) >= 0)
                     {
+                        
+
                         for (int i = 0; i < c.GetLength(0); i++)
                         {
 
-                            dtgArticulos.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5]);
+                            dtgArticulos.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5],Image.FromFile(c[i,6]));
+                           
 
 
                         }
@@ -419,9 +422,9 @@ namespace SAIVista
                     c = oControlador.datosDtgArticulos();
 
                     int indiceA = c.GetLength(0) - 1;
+                    
 
-                 
-                    dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5]);
+                    dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], Image.FromFile(c[indiceA,6])) ;
                     
                 }
 
