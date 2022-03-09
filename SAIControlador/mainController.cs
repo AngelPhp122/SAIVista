@@ -56,7 +56,12 @@ namespace SAIControlador
         }
 
 
-       
+        public void eliminarDatosController(int idProductoController) {
+
+            
+            oModelo.eliminarDatosModelo(idProductoController);
+
+        }
         
         
 

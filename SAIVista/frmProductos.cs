@@ -174,10 +174,12 @@ namespace SAIVista
             // 
             // dtgArticulos
             // 
+            this.dtgArticulos.AllowUserToAddRows = false;
             this.dtgArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgArticulos.Location = new System.Drawing.Point(266, 126);
+            this.dtgArticulos.Location = new System.Drawing.Point(266, 42);
             this.dtgArticulos.Name = "dtgArticulos";
-            this.dtgArticulos.Size = new System.Drawing.Size(801, 415);
+            this.dtgArticulos.RowTemplate.Height = 180;
+            this.dtgArticulos.Size = new System.Drawing.Size(1042, 499);
             this.dtgArticulos.TabIndex = 13;
             // 
             // btnAgregar
@@ -207,6 +209,7 @@ namespace SAIVista
             this.btnEliminar.TabIndex = 16;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lbIndexCat
             // 
@@ -229,7 +232,7 @@ namespace SAIVista
             // 
             // frmProductos
             // 
-            this.ClientSize = new System.Drawing.Size(1079, 654);
+            this.ClientSize = new System.Drawing.Size(1321, 654);
             this.Controls.Add(this.lbIndexCat);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -360,16 +363,17 @@ namespace SAIVista
 
             try
             {
-
+                
                 comprobar = dtgArticulos.Rows.Count;
-
+                dtgArticulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //MessageBox.Show(""+comprobar);
                 DataGridViewTextBoxColumn c1 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c2 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c3 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c4 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c5 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c6 = new DataGridViewTextBoxColumn();
-                DataGridViewImageColumn c7 = new DataGridViewImageColumn();
+                DataGridViewImageColumn   c7 = new DataGridViewImageColumn();
                 //DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
                 //DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
 
@@ -394,10 +398,13 @@ namespace SAIVista
                     dtgArticulos.Columns.Add(c5);
                     dtgArticulos.Columns.Add(c6);
                     dtgArticulos.Columns.Add(c7);
+
+                    dtgArticulos.Columns[6].Width = 325;
                     //dtgArticulos.Columns.Add(c8);
                     //dtgArticulos.Columns.Add(c9);
                     string[,] c;
                     c = oControlador.datosDtgArticulos();
+
                     //MessageBox.Show("arreglo c = "+c.GetLength(0));
                     if (c.GetLength(0) >= 0)
                     {
@@ -405,12 +412,19 @@ namespace SAIVista
 
                         for (int i = 0; i < c.GetLength(0); i++)
                         {
-
+                            
                             dtgArticulos.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5],Image.FromFile(c[i,6]));
-                           
-
+                            
+                            //dtgArticulos.Rows[i].Height = 180;
+                            //dtgArticulos.Columns[6].Width = 325;
+                            
 
                         }
+                    }
+                    else
+                    {
+
+
                     }
                 }
                 else
@@ -421,14 +435,14 @@ namespace SAIVista
                     
                     c = oControlador.datosDtgArticulos();
 
-                    int indiceA = c.GetLength(0) - 1;
-                    
+                    int indiceA = c.GetLength(0)-1;
 
-                    dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], Image.FromFile(c[indiceA,6])) ;
                     
+                    dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], Image.FromFile(c[indiceA,6])) ;
+                    dtgArticulos.Columns[6].Width = 325;
                 }
 
-
+               
 
 
             }
@@ -486,6 +500,31 @@ namespace SAIVista
 
 
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //llamo el metodo para poder obtener el id de la fila que necesito eliminar
+            string IdEliminar;
+            IdEliminar =  datoEliminarDgArticulso();
+            MessageBox.Show(IdEliminar);
+            //hago la llamada del metodo de mi controlador, a la vez envio el id para que pueda operar con ese parametro
+            oControlador.eliminarDatosController(int.Parse(IdEliminar));
+           
+            
+
+        }
+
+
+        public string datoEliminarDgArticulso() {
+
+            string datoDgArticulos = "";
+            datoDgArticulos = dtgArticulos.SelectedRows[0].Cells[0].Value.ToString();
+            dtgArticulos.Rows.RemoveAt(dtgArticulos.CurrentRow.Index);
+            
+
+            return datoDgArticulos;
+        
         }
     }
        

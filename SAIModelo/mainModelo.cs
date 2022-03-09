@@ -188,7 +188,7 @@ namespace SAIModelo
             lector.Close();
             obj.getConexionDB().Close();
 
-            Console.WriteLine(listaImagenID.Count);
+            
             datosIdImagen = new string[listaImagenID.Count,2];
             datosDtgArticulos = new string[listaProductoID.Count,7];
 
@@ -224,7 +224,7 @@ namespace SAIModelo
                 
             }
 
-            Console.WriteLine(datosDtgArticulos[0, 6]);
+            
             
             return datosDtgArticulos;
         }
@@ -278,40 +278,21 @@ namespace SAIModelo
             return DatosImagen;
         }
 
-        //este metodo es para retornar los valores de ID y ruta de la imagen que se mostrara en le datagridview
-       /* public string[,] retornoIdImagenDg(int idImagenDg) {
 
-            string[,] DatosImagenID;
-            var listaImagenID = new List<string>();
-            var listaImagenRuta = new List<string>();
+        public void eliminarDatosModelo(int idProductoModelo) { 
+        
+            int idArticulo = idProductoModelo;
 
             obj.getConexionDB().Open();
-            consultaSQL = "SELECT id_imagen, rutaImagen FROM tbImagenes WHERE id_imagen= '" + idImagenDg + "'";
-            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            consultaSQL = "DELETE FROM tbArticulos WHERE id_producto='" + idProductoModelo + "'";
+            comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB ());
             lector = comandoConexion.ExecuteReader();
 
-            while (lector.Read())
-            {
+          
 
-                listaImagenID.Add(lector["id_imagen"].ToString());
-                listaImagenRuta.Add(lector["rutaImagen"].ToString());
-
-            }
-            lector.Close();
-            obj.getConexionDB().Close();
-
-            DatosImagenID = new string[listaImagenID.Count,2];
-
-            for (int i =0; i < listaImagenID.Count; i++) {
-
-                DatosImagenID[i,0] = listaImagenID[i];
-                DatosImagenID[i,1] = listaImagenRuta[i];
-            }
-
-
-            return DatosImagenID;
-
-        }*/
+            obj.getConexionDB ().Close();
+        
+        }
 
     }
 }
