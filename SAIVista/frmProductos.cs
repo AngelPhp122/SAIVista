@@ -200,6 +200,7 @@ namespace SAIVista
             this.btnEditar.TabIndex = 15;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -414,18 +415,15 @@ namespace SAIVista
                         {
                             
                             dtgArticulos.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5],Image.FromFile(c[i,6]));
-                            
+                            dtgArticulos.Rows[i].Cells[6].Tag = c[i, 6];
+                            //MessageBox.Show((dtgArticulos.Rows[i].Cells[6].Tag = c[i, 6]).ToString());
                             //dtgArticulos.Rows[i].Height = 180;
                             //dtgArticulos.Columns[6].Width = 325;
                             
 
                         }
                     }
-                    else
-                    {
-
-
-                    }
+                    
                 }
                 else
                 {
@@ -442,7 +440,11 @@ namespace SAIVista
                     dtgArticulos.Columns[6].Width = 325;
                 }
 
-               
+
+                //string seleccionFila = dtgArticulos.CurrentRow.ToString();
+
+     //           MessageBox.Show("datoSeleccionado "+ seleccionFila);
+
 
 
             }
@@ -507,7 +509,7 @@ namespace SAIVista
             //llamo el metodo para poder obtener el id de la fila que necesito eliminar
             string IdEliminar;
             IdEliminar =  datoEliminarDgArticulso();
-            MessageBox.Show(IdEliminar);
+            //MessageBox.Show(IdEliminar);
             //hago la llamada del metodo de mi controlador, a la vez envio el id para que pueda operar con ese parametro
             oControlador.eliminarDatosController(int.Parse(IdEliminar));
            
@@ -526,6 +528,36 @@ namespace SAIVista
             return datoDgArticulos;
         
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            string[,] datosModificar = new string[1, 7];
+
+
+            datosModificar[0, 0] = dtgArticulos.SelectedRows[0].Cells[0].Value.ToString();
+            datosModificar[0, 1] = dtgArticulos.SelectedRows[0].Cells[1].Value.ToString();
+            datosModificar[0, 2] = dtgArticulos.SelectedRows[0].Cells[2].Value.ToString();
+            datosModificar[0, 3] = dtgArticulos.SelectedRows[0].Cells[3].Value.ToString();
+            datosModificar[0, 4] = dtgArticulos.SelectedRows[0].Cells[4].Value.ToString();
+            datosModificar[0, 5] = dtgArticulos.SelectedRows[0].Cells[5].Value.ToString();
+            datosModificar[0, 6] = dtgArticulos.SelectedRows[0].Cells[6].Tag.ToString().Trim();
+            
+
+            
+
+            Form formaModificar = new frmModificarProducto(datosModificar[0,0],datosModificar[0,1], datosModificar[0, 2], datosModificar[0, 3], datosModificar[0, 4], datosModificar[0, 5],datosModificar[0,6]);
+            formaModificar.Show();
+
+        }
+
+        /*public string datoActualizarDgArticulo() {
+
+            string datoDgArticuloEditar = "";
+            datoDgArticuloEditar = dtgArticulos.SelectedRows[0].Cells[0].Value.ToString();
+
+            return datoDgArticuloEditar;
+        }*/
     }
        
     }

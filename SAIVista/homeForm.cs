@@ -36,6 +36,7 @@ namespace SAIVista
             Form formularioMenu = new frmProductos();
 
             formularioMenu.Show();
+
         }
     }
 }

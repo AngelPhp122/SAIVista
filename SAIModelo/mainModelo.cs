@@ -278,7 +278,7 @@ namespace SAIModelo
             return DatosImagen;
         }
 
-
+        //Metodo para realizar la eliminacion del registro que corresponde al id seleccionado en el datagridview
         public void eliminarDatosModelo(int idProductoModelo) { 
         
             int idArticulo = idProductoModelo;
@@ -289,9 +289,74 @@ namespace SAIModelo
             lector = comandoConexion.ExecuteReader();
 
           
-
+            lector.Close();
             obj.getConexionDB ().Close();
         
+        }
+
+        //metodo para realizr la actualizacion de datos de mi tabla articulos
+        public void actualizarDatosModelo(int idProductoAcModelo, int idCategoria, int idImagen, string nombreProducto, string descripcionArt, int cantidadP, double precioP) {
+
+            Console.WriteLine("este es el valor de la imagen id"+idImagen);
+            obj.getConexionDB ().Open();
+            consultaSQL = "UPDATE tbArticulos SET id_categoria='"+idCategoria+"',id_imagen='"+idImagen+"',nombreArticulo='"+nombreProducto+"',descripcionArt='"+descripcionArt+"',cantidad='"+cantidadP+"',precio='"+precioP+"' WHERE id_producto='"+idProductoAcModelo+"'";
+            
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB ());
+            lector = comandoConexion.ExecuteReader ();
+
+            lector.Close();
+            obj.getConexionDB().Close();
+
+        }
+
+        //metodo para retornar el id de la imagen a la vista
+
+        public int retornoIdimagenUpdateModel(string rutaImgModel, int idProductoModel, bool imagenExistente)
+        {
+
+            int idImagenRetornoVista;
+            int []arregloIdImagen = new int[1];
+
+            if (imagenExistente == true) {
+                obj.getConexionDB().Open();
+                consultaSQL = "SELECT tbArticulos.id_producto, tbArticulos.id_imagen FROM tbArticulos WHERE id_producto='" + idProductoModel + "'";
+                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+                lector = comandoConexion.ExecuteReader();
+
+
+                while (lector.Read())
+                {
+                    arregloIdImagen[0] = int.Parse(lector["id_imagen"].ToString());
+                }
+
+                lector.Close();
+                obj.getConexionDB().Close();
+
+                idImagenRetornoVista = arregloIdImagen[0];
+
+
+                return idImagenRetornoVista;
+            }
+            else {
+
+                obj.getConexionDB().Open();
+                consultaSQL = "SELECT TOP(1) * FROM tbImagenes ORDER BY id_imagen DESC";
+                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB()) ;
+                lector = comandoConexion.ExecuteReader();
+
+
+                while (lector.Read())
+                {
+                    arregloIdImagen[0] = int.Parse(lector["id_imagen"].ToString());
+                }
+
+                lector.Close();
+                obj.getConexionDB().Close();
+
+                idImagenRetornoVista = arregloIdImagen[0];
+
+                return idImagenRetornoVista;
+            }
         }
 
     }

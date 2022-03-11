@@ -63,7 +63,26 @@ namespace SAIControlador
 
         }
         
+        public void actualizarDatosController(int idProdcutoMC, int idCategoria, int idImagen, string nombreProducto, string descripcionArt, int cantidadP, double precioP)
+        {
+            oModelo.actualizarDatosModelo(idProdcutoMC, idCategoria, idImagen, nombreProducto, descripcionArt, cantidadP, precioP);
+
+        }
+
+        public int retornoIDimagenActualizar(string rutaImgUpdate, int IdProductoController, bool imagenExistenteController) {
+
+
+            int idImagenModelReturn = oModelo.retornoIdimagenUpdateModel(rutaImgUpdate, IdProductoController, imagenExistenteController);
+
+            return idImagenModelReturn;
         
+        }
+
+        public void insertDimagenUpdate(string nRutaImagenUpdate, int categoriaUpdate)
+        {
+            oModelo.insertarRutaImagen(nRutaImagenUpdate, categoriaUpdate.ToString());
+
+        }
 
     }
 }
