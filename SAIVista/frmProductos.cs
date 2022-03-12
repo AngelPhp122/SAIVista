@@ -553,13 +553,7 @@ namespace SAIVista
             Close();
         }
 
-        /*public string datoActualizarDgArticulo() {
-
-            string datoDgArticuloEditar = "";
-            datoDgArticuloEditar = dtgArticulos.SelectedRows[0].Cells[0].Value.ToString();
-
-            return datoDgArticuloEditar;
-        }*/
+        
     }
        
     }
