@@ -10,9 +10,9 @@ namespace SAIControlador
     {
 
         SAIModelo.mainModelo oModelo = new SAIModelo.mainModelo();
-
         
-
+        
+        //controlador que envia los datos para la insercion en la tabla articulos
         public void recibeDatos(string a, string b, string c, string d, string e, string f) {
 
             string[] datos = new string[6];

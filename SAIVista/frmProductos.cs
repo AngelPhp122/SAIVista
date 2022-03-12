@@ -454,6 +454,8 @@ namespace SAIVista
             }
             }
 
+
+
         
         //metodo para limpiar cajas.
         public void limpiarCajas() {
@@ -548,7 +550,7 @@ namespace SAIVista
 
             Form formaModificar = new frmModificarProducto(datosModificar[0,0],datosModificar[0,1], datosModificar[0, 2], datosModificar[0, 3], datosModificar[0, 4], datosModificar[0, 5],datosModificar[0,6]);
             formaModificar.Show();
-
+            Close();
         }
 
         /*public string datoActualizarDgArticulo() {

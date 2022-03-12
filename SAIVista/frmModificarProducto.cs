@@ -14,11 +14,15 @@ namespace SAIVista
     {
      private  string idproductoM, categoriaM, nombreM, descripcionM, cantidadM, precioM, imgMod;
      private string rutaImagenYaExistente;
+
+        
+
         private bool imagenExistente = false;
 
        
 
         SAIControlador.mainController oControllerM = new SAIControlador.mainController();
+        
 
         
 
@@ -34,8 +38,7 @@ namespace SAIVista
             rutaImagenYaExistente = rutaImagen;
             imgMod = rutaImagenYaExistente;
 
-            MessageBox.Show(rutaImagenYaExistente);
-            MessageBox.Show(imgMod);
+            
         }
 
        
@@ -127,14 +130,23 @@ namespace SAIVista
                int idImagenModelo =  oControllerM.retornoIDimagenActualizar(imgMod,int.Parse(idproductoM), imagenExistente);
 
                oControllerM.actualizarDatosController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
+
+                Form oFormaTablaArticulos = new frmProductos();
+
+                Close();
+                oFormaTablaArticulos.Show();
                 
-            
             }
             else {
                 imagenExistente=false;
                 oControllerM.insertDimagenUpdate(imgMod, int.Parse(categoriaM));
                 int idImagenModelo2 = oControllerM.retornoIDimagenActualizar(imgMod, int.Parse(idproductoM),imagenExistente);
                 oControllerM.actualizarDatosController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo2, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
+
+                Form oFormaTablaArticulos = new frmProductos();
+
+                Close();
+                oFormaTablaArticulos.Show();
 
             }
 
