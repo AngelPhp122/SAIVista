@@ -55,7 +55,7 @@ namespace SAIControlador
 
         }
 
-
+        //controlador para la eliminacion de datos de la tabla articulos
         public void eliminarDatosController(int idProductoController) {
 
             
@@ -63,12 +63,14 @@ namespace SAIControlador
 
         }
         
+        //controlador para la actualizacion de datos de la tabla articulos
         public void actualizarDatosController(int idProdcutoMC, int idCategoria, int idImagen, string nombreProducto, string descripcionArt, int cantidadP, double precioP)
         {
             oModelo.actualizarDatosModelo(idProdcutoMC, idCategoria, idImagen, nombreProducto, descripcionArt, cantidadP, precioP);
 
         }
 
+        //controlador para el retorno del id de imagen en el proceso de actualizacion de datos de la tabla articulos
         public int retornoIDimagenActualizar(string rutaImgUpdate, int IdProductoController, bool imagenExistenteController) {
 
 
@@ -78,6 +80,7 @@ namespace SAIControlador
         
         }
 
+        //controlador para la insercion de una nueva imagen que actualizara la ya existente para el index en curso a editar
         public void insertDimagenUpdate(string nRutaImagenUpdate, int categoriaUpdate)
         {
             oModelo.insertarRutaImagen(nRutaImagenUpdate, categoriaUpdate.ToString());

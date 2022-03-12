@@ -317,6 +317,7 @@ namespace SAIModelo
             int idImagenRetornoVista;
             int []arregloIdImagen = new int[1];
 
+            //cuando se trata de la misma imagen
             if (imagenExistente == true) {
                 obj.getConexionDB().Open();
                 consultaSQL = "SELECT tbArticulos.id_producto, tbArticulos.id_imagen FROM tbArticulos WHERE id_producto='" + idProductoModel + "'";
@@ -337,6 +338,8 @@ namespace SAIModelo
 
                 return idImagenRetornoVista;
             }
+
+            //cuando se trata de una imagen nueva
             else {
 
                 obj.getConexionDB().Open();
