@@ -141,12 +141,11 @@ namespace SAIModelo
             var listaImagenID = new List<string>();
             var listaDosIDimagen = new List<string>();
             var listaRutaImagen = new List<string>();
-            //var listaUsuarioID = new List<string>();
             var listaNombreArt = new List<string>();
             var listaDescripcion = new List<string>();
             var listaCantidad = new List<string>();
             var listaPrecio = new List<string>();
-            //var listaFechaCap = new List<string>();
+            
 
             
             obj.getConexionDB().Open();
@@ -205,8 +204,6 @@ namespace SAIModelo
                 
                     datosDtgArticulos[i,0] = listaProductoID[i];
                     datosDtgArticulos[i,1] = listaCategoriaID[i];
-                    //datosDtgArticulos[i,2] = listaImagenID[i];
-                    //datosDtgArticulos[i,3] = listaUsuarioID[i];
                     datosDtgArticulos[i,2] = listaNombreArt[i];
                     datosDtgArticulos[i,3] = listaDescripcion[i];
                     datosDtgArticulos[i,4] = listaCantidad[i];

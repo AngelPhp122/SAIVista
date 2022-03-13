@@ -437,6 +437,7 @@ namespace SAIVista
 
                     
                     dtgArticulos.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], Image.FromFile(c[indiceA,6])) ;
+                    dtgArticulos.Rows[indiceA].Cells[6].Tag = c[indiceA, 6];
                     dtgArticulos.Columns[6].Width = 325;
                 }
 
