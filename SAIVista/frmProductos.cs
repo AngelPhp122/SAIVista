@@ -281,7 +281,7 @@ namespace SAIVista
                 validarCampos();
 
                 //lleno el arreglo con los datos obtenidos en la vista para luego enviarlos al controlador  
-                datosID = oControlador.datosCbxCategoria();
+                datosID = oControlador.datosCbxCategoriaMainController();
 
                 //for que me ayuda a obtener el elemento correcto segun su id en la tabla y a su vez almacena los datos que se iran a guardar a la tabla
                 for (int i = 0; i < (datosID.Length / 2); i++)
@@ -301,7 +301,7 @@ namespace SAIVista
 
 
                 //envio los datos al controlador llamando el metodo por medio de la instancia (objeto)
-                oControlador.recibeDatos(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
+                oControlador.recibeDatosMainController(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
 
                 //limpiar cada elemento de la vista
                 limpiarCajas();
@@ -333,7 +333,7 @@ namespace SAIVista
 
                 if (comprobar1 == 0)
                 {
-                    d = oControlador.datosCbxCategoria();
+                    d = oControlador.datosCbxCategoriaMainController();
 
                     datos2 = new string[d.Length / 2];
 
@@ -404,7 +404,7 @@ namespace SAIVista
                     //dtgArticulos.Columns.Add(c8);
                     //dtgArticulos.Columns.Add(c9);
                     string[,] c;
-                    c = oControlador.datosDtgArticulos();
+                    c = oControlador.datosDtgArticulosMainController();
 
                     //MessageBox.Show("arreglo c = "+c.GetLength(0));
                     if (c.GetLength(0) >= 0)
@@ -431,7 +431,7 @@ namespace SAIVista
                     
                     string[,] c;
                     
-                    c = oControlador.datosDtgArticulos();
+                    c = oControlador.datosDtgArticulosMainController();
 
                     int indiceA = c.GetLength(0)-1;
 
@@ -514,7 +514,7 @@ namespace SAIVista
             IdEliminar =  datoEliminarDgArticulso();
             //MessageBox.Show(IdEliminar);
             //hago la llamada del metodo de mi controlador, a la vez envio el id para que pueda operar con ese parametro
-            oControlador.eliminarDatosController(int.Parse(IdEliminar));
+            oControlador.eliminarDatosMainCotroller(int.Parse(IdEliminar));
            
             
 

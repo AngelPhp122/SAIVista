@@ -54,7 +54,7 @@ namespace SAIVista
                 string[] datos2;
                 //validacion de combobox vacio
                 int comprobar1;
-                d = oControllerM.datosCbxCategoria();
+                d = oControllerM.datosCbxCategoriaMainController();
                 comprobar1 = cbxCategoriaModificar.Items.Count;
 
                 if (comprobar1 == 0)
@@ -127,9 +127,9 @@ namespace SAIVista
            
             if (imgMod.Equals(rutaImagenYaExistente)) {
                imagenExistente = true;
-               int idImagenModelo =  oControllerM.retornoIDimagenActualizar(imgMod,int.Parse(idproductoM), imagenExistente);
+               int idImagenModelo =  oControllerM.retornoIDimagenMainController(imgMod,int.Parse(idproductoM), imagenExistente);
 
-               oControllerM.actualizarDatosController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
+               oControllerM.actualizarDatosMainController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
 
                 Form oFormaTablaArticulos = new frmProductos();
 
@@ -139,9 +139,9 @@ namespace SAIVista
             }
             else {
                 imagenExistente=false;
-                oControllerM.insertDimagenUpdate(imgMod, int.Parse(categoriaM));
-                int idImagenModelo2 = oControllerM.retornoIDimagenActualizar(imgMod, int.Parse(idproductoM),imagenExistente);
-                oControllerM.actualizarDatosController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo2, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
+                oControllerM.insertDimagenUpdateMainController(imgMod, int.Parse(categoriaM));
+                int idImagenModelo2 = oControllerM.retornoIDimagenMainController(imgMod, int.Parse(idproductoM),imagenExistente);
+                oControllerM.actualizarDatosMainController(int.Parse(idproductoM), int.Parse(categoriaM), idImagenModelo2, tbxNombreMod.Text, tbxDescripcionMod.Text, int.Parse(tbxCantidadMod.Text), double.Parse(tbxPrecioMod.Text));
 
                 Form oFormaTablaArticulos = new frmProductos();
 
