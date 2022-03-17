@@ -45,6 +45,7 @@
     <Compile Include="mainController.cs" />
     <Compile Include="ProductosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedoresController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAIModelo\SAIModelo.csproj">

@@ -38,5 +38,12 @@ namespace SAIVista
             formularioMenu.Show();
 
         }
+
+        private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formularioMenu = new frmCompras();
+
+            formularioMenu.Show();
+        }
     }
 }

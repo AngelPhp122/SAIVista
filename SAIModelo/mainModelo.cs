@@ -15,7 +15,10 @@ namespace SAIModelo
     public class mainModelo
     {
         ProductosModel oProductosModel = new ProductosModel();
+        ComprasModel oComprasModel = new ComprasModel();
 
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA ARTICULOS ******************************
         public void insertarDatosMainModel(string a, string b, string c, string d, string e, string f)
         {
 
@@ -51,6 +54,34 @@ namespace SAIModelo
         public void insertarRutaImagenMainModel(string rutaImg, string categoriImg)
         {
             oProductosModel.getInsertarRutaImagen(rutaImg, categoriImg);
+        }
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA ARTICULOS ******************************
+
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA COMPRAS ******************************
+
+        public string[,] datosCbxProveedorMainModel()
+        {
+
+            return oComprasModel.getDatosCbxProveedores();
+        }
+
+        public string[,] datosDataGridViewCompraMainModel()
+        {
+
+            return oComprasModel.getDatosDataGrieViewComprasModel();
+        }
+
+        public string[,] datosCbxCategoriaComprasMainModel()
+        {
+
+            return oComprasModel.getDatosCbxCategoriaCompras();
+        }
+
+        public void datosInsertarTabComprasImagenesMainModel(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j)
+        {
+            oComprasModel.getDatosInsertarTabComprasImagenes(a, b, c, d, e, f, g, h, i, j);
         }
 
     }

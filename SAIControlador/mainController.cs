@@ -10,6 +10,7 @@ namespace SAIControlador
     {
 
         ProductosController oProductosController = new ProductosController();
+        ComprasController oComprasController = new ComprasController();
        
 
         //***************** Inicia controladores del mantenimiento de la tabla Articulos (tbArticulos) ************************************
@@ -57,6 +58,35 @@ namespace SAIControlador
         }
 
         //****************************** finaliza controladores del mantenimiento de la tabla articulos **********************************
+
+        //***************** Inicia controladores del mantenimiento de la tablas Compras (Compras detalle y compras encabezado) ************************************
+
+        public string [,] datosCbxProveedorMainController()
+        {
+
+            return oComprasController.getDatosCbxProveedoresComprasController();
+        }
+
+        public string [,] datosDtgComprasMainController()
+        {
+
+            return oComprasController.getDatosDtgComprasController();
+        }
+
+        public string [,] datosCbxCategoriaComprasMainController()
+        {
+            return oComprasController.getDatosCbxCategoriaComprasController();
+        }
+        public void datosInsertarTabComprasImagenesMainController(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j)
+        {
+            oComprasController.getDatosInsertarTabComprasImagenesController(a, b, c, d, e, f, g, h, i, j);
+        }
+        
+
+        //****************************** finaliza controladores del mantenimiento de la  tablas Compras (Compras detalle y compras encabezado)**********************************
+
+
+
 
     }
 }

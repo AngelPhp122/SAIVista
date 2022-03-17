@@ -17,18 +17,6 @@ namespace SAIModelo
         private const string DBName = "SAIDB";
 
 
-
-        /*
-        public void setLector(SqlDataReader lecturaDatos) {
-
-            lector = lecturaDatos;
-        }
-
-        public SqlDataReader getLector() { 
-        
-            return lector;
-        }*/
-
         public void setConexionDB(SqlConnection conexionBD) { 
         
             conexionDB = conexionBD;
