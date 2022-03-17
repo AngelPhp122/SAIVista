@@ -156,9 +156,11 @@
             // 
             // dtgCompras
             // 
+            this.dtgCompras.AllowUserToAddRows = false;
             this.dtgCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCompras.Location = new System.Drawing.Point(290, 73);
             this.dtgCompras.Name = "dtgCompras";
+            this.dtgCompras.RowTemplate.Height = 180;
             this.dtgCompras.Size = new System.Drawing.Size(834, 511);
             this.dtgCompras.TabIndex = 12;
             // 

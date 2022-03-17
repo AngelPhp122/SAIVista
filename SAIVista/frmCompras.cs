@@ -44,7 +44,7 @@ namespace SAIVista
                 {
                     d = oControladorCompras.datosCbxProveedorMainController();
                     idProveedores = d;
-                    MessageBox.Show(""+idProveedores.GetLength(0));
+                    //MessageBox.Show(""+idProveedores.GetLength(0));
                     datos2Compras = new string[d.Length / 2];
 
                     for (int i = 0; i < (d.Length / 2); i++)
@@ -68,7 +68,7 @@ namespace SAIVista
                 {
                     b = oControladorCompras.datosCbxCategoriaComprasMainController();
                     idCategorias = b;
-                    MessageBox.Show(idCategorias[0,1]);
+                    //MessageBox.Show(idCategorias[0,1]);
                     datos3Compras = new string[b.Length / 2];
 
                     for (int i = 0; i < (b.Length / 2); i++)
@@ -92,8 +92,8 @@ namespace SAIVista
 
             int comprobar;
 
-            try
-            {
+            //try
+            //{
 
                 comprobar = dtgCompras.Rows.Count;
                 dtgCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -145,7 +145,7 @@ namespace SAIVista
                     
                     string[,] c;
                     c = oControladorCompras.datosDtgComprasMainController();
-                    MessageBox.Show("arreglo c " + c.Length);
+                    //MessageBox.Show(c[0,9]);
 
                     if (c.GetLength(0) >= 0)
                     {
@@ -155,7 +155,7 @@ namespace SAIVista
                         {
 
                             dtgCompras.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5], c[i,6], c[i,7], c[i,8], c[i,9], Image.FromFile(c[i, 10]));
-                            dtgCompras.Rows[i].Cells[6].Tag = c[i, 6];
+                            dtgCompras.Rows[i].Cells[6].Tag = c[i, 10];
                             
 
 
@@ -188,12 +188,12 @@ namespace SAIVista
 
 
 
-            }
-            catch (Exception ex)
-            {
+          //  }
+           //catch (Exception ex)
+           //{
 
-                MessageBox.Show(ex.Message);
-            }
+          //      MessageBox.Show(ex.Message);
+//            }
             
         }
 
@@ -241,8 +241,17 @@ namespace SAIVista
         {
             if (openFileDialogCompra.ShowDialog() == DialogResult.OK)
             {
+                bool comprobar = true;
+               comprobar =  oControladorCompras.comprobarPathIMGMainController(openFileDialogCompra.FileName);
 
-                rutaImagenCompras = openFileDialogCompra.FileName;
+                if(comprobar == false) {
+                    rutaImagenCompras = openFileDialogCompra.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("la imagen que usted esta seleccionando ya existe en la base de datos");
+                }
+                
             }
         }
     }

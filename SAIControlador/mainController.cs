@@ -82,6 +82,11 @@ namespace SAIControlador
             oComprasController.getDatosInsertarTabComprasImagenesController(a, b, c, d, e, f, g, h, i, j);
         }
         
+        public bool comprobarPathIMGMainController(string pathl)
+        {
+
+            return oComprasController.getComprobarPathIMGController(pathl);
+        }
 
         //****************************** finaliza controladores del mantenimiento de la  tablas Compras (Compras detalle y compras encabezado)**********************************
 

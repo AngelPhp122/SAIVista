@@ -87,5 +87,20 @@ namespace SAIControlador
 
             return datosCbxCategoriaComprasController();
         }
+
+
+        //5.0 controlador para comprobar ruta
+        private bool comprobarPathIMGController(string rpath)
+        {
+
+            return oComprasModelo.comprobarPathIMGMainModel(rpath);
+        }
+
+        //metodo para acceder comprobar path
+        public bool getComprobarPathIMGController(string rrpath)
+        {
+
+            return comprobarPathIMGController(rrpath);
+        }
     }
 }

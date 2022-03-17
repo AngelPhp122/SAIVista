@@ -84,5 +84,11 @@ namespace SAIModelo
             oComprasModel.getDatosInsertarTabComprasImagenes(a, b, c, d, e, f, g, h, i, j);
         }
 
+        public bool comprobarPathIMGMainModel(string pathR)
+        {
+
+            return oComprasModel.getComprobarPathIMG(pathR);
+        }
+
     }
 }

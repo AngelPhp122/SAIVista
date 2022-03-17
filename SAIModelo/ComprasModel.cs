@@ -158,20 +158,21 @@ namespace SAIModelo
             //var listaDosIDimagen = new List<string>();
             var listaRutaImagen = new List<string>();
             var listaNombreCompra = new List<string>();
-            var listaDescripcion = new List<string>();
+            //var listaDescripcion = new List<string>();
             var listaCantidad = new List<string>();
             var listaPrecio = new List<string>();
             var listaNumFactura = new List<string>();
-            var listaDescuento = new List<string>();
+            //var listaDescuento = new List<string>();
             var listaUsuarioID = new List<string>();
             var listaProveedorID = new List<string>();
             var listaCompraDetalleID = new List<string>();
             var listaFechaCompra = new List<string>();
+            //var listaIDcompraEncabezado = new List<string>();
 
 
             obj.getConexionDB().Open();
 
-            consultaSQL = "select id_compra, id_usuario, id_proveedor, id_producto, id_compraDetalle, nombre_productoCom, numFacturaCompra, cantProdComprado, PrecioProdCompra, fechaCompra  from tbCompra_detalle, tbCompra_encabezado";
+            consultaSQL = "select id_compra, id_usuario, id_proveedor, id_producto, id_compra_detalle, fechaCompra   from tbCompra_encabezado";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
 
@@ -182,17 +183,32 @@ namespace SAIModelo
 
                 listaComprasID.Add((string)lector["id_compra"].ToString());
                 listaUsuarioID.Add((string)lector["id_usuario"].ToString());
-                listaProveedorID.Add((string)lector["id_proveedor"]);
-                listaProductoID.Add((string)lector["id_producto"]);
-                listaCompraDetalleID.Add((string)lector["id_compraDetalle"].ToString());
+                listaProveedorID.Add((string)lector["id_proveedor"].ToString());
+                listaProductoID.Add((string)lector["id_producto"].ToString());
+                listaCompraDetalleID.Add((string)lector["id_compra_detalle"].ToString());
+                 listaFechaCompra.Add((string)lector["fechaCompra"].ToString());
+                 //listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
+
+            }
+            lector.Close();
+            obj.getConexionDB().Close();
+
+
+            //separar consultas
+            obj.getConexionDB().Open();
+
+            consultaSQL = "select nombre_productoCom, numFacturaCompra, cantProdComprado, precioProdCompra from tbCompra_detalle";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            while (lector.Read())
+            {
                 listaNombreCompra.Add((string)lector["nombre_productoCom"].ToString());
                 listaNumFactura.Add((string)lector["numFacturaCompra"].ToString());
                 listaCantidad.Add((string)lector["cantProdComprado"].ToString());
                 listaPrecio.Add((string)lector["precioProdCompra"].ToString());
-                listaFechaCompra.Add((string)lector["fechaCompra"].ToString());
-                //listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
-
             }
+
             lector.Close();
             obj.getConexionDB().Close();
 
@@ -208,19 +224,23 @@ namespace SAIModelo
 
                 listaImagenID.Add(lector["id_imagen"].ToString());
                 listaRutaImagen.Add(lector["rutaImagen"].ToString());
+                //listaIDcompraEncabezado.Add(lector["id_compra"].ToString());
+
             }
             lector.Close();
             obj.getConexionDB().Close();
 
+            
 
             datosIdImagenCompras = new string[listaImagenID.Count, 2];
             datosDtgCompras = new string[listaComprasID.Count, 11];
 
-            for (int k = 0; k < listaRutaImagen.Count; k++)
+            for (int k = 0; k < listaImagenID.Count; k++)
             {
 
                 datosIdImagenCompras[k, 0] = listaImagenID[k];
                 datosIdImagenCompras[k, 1] = listaRutaImagen[k];
+                //datosIdImagenCompras[k, 2] = listaIDcompraEncabezado[k];
             }
 
 
@@ -233,7 +253,7 @@ namespace SAIModelo
                 datosDtgCompras[i, 2] = listaProveedorID[i];
                 datosDtgCompras[i, 3] = listaProductoID[i];
                 datosDtgCompras[i, 4] = listaCompraDetalleID[i];
-                datosDtgCompras[i, 5] = listaNombreCompra[i];
+               datosDtgCompras[i, 5] = listaNombreCompra[i];
                 datosDtgCompras[i, 6] = listaNumFactura[i];
                 datosDtgCompras[i, 7] = listaCantidad[i];
                 datosDtgCompras[i, 8] = listaPrecio[i];
@@ -241,13 +261,11 @@ namespace SAIModelo
                 datosDtgCompras[i,10] = listaImagenID[i];
                 for (int j = 0; j < datosIdImagenCompras.GetLength(0); j++)
                 {
-                    if (datosDtgCompras[i, 10] == datosIdImagenCompras[j, 0])
+                   if (datosDtgCompras[i, 10] == datosIdImagenCompras[j, 0])
                     {
-                        datosDtgCompras[i, 10] = listaRutaImagen[j];
+                       datosDtgCompras[i, 10] = listaRutaImagen[j];
                     }
                 }
-
-
 
 
             }
@@ -431,7 +449,44 @@ namespace SAIModelo
             return idImagenReturn;
         }
 
-        
+        //metodo de consulta si ya existe el path de la imagen en la base de datos
+
+        private bool  comprobarPathIMG(string rutaPath)
+        {
+            string comprobarRuta = "";
+
+            obj.getConexionDB().Open();
+            consultaSQL = "SELECT rutaImagen FROM tbImagenes WHERE rutaImagen='"+rutaPath+"'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            if (lector.Read())
+            {
+                comprobarRuta = lector["rutaImagen"].ToString();
+            }
+
+            lector.Close();
+            obj.getConexionDB ().Close ();
+
+            if (rutaPath.Equals(comprobarRuta))
+            {
+                return true;
+            }
+            else
+            {
+               return false;
+            }
+
+             
+        }
+
+        //metodo para acceder a comprobarPathIMG
+
+        public bool getComprobarPathIMG(string ruta)
+        {
+
+            return comprobarPathIMG(ruta);
+        }
 
     }
 }

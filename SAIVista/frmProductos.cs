@@ -375,8 +375,7 @@ namespace SAIVista
                 DataGridViewTextBoxColumn c5 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c6 = new DataGridViewTextBoxColumn();
                 DataGridViewImageColumn   c7 = new DataGridViewImageColumn();
-                //DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
-                //DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
+               
 
                 //estructura de control que no permite la duplicacion de la tabla
                 if (comprobar == 0)
@@ -401,8 +400,7 @@ namespace SAIVista
                     dtgArticulos.Columns.Add(c7);
 
                     dtgArticulos.Columns[6].Width = 325;
-                    //dtgArticulos.Columns.Add(c8);
-                    //dtgArticulos.Columns.Add(c9);
+                    
                     string[,] c;
                     c = oControlador.datosDtgArticulosMainController();
 
