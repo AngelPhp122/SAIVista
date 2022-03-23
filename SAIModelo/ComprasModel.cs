@@ -488,5 +488,78 @@ namespace SAIModelo
             return comprobarPathIMG(ruta);
         }
 
+        //***************************** Metodo para modificar el dato del Id obtenido en el datagridView ************************************
+
+        private void ModificarDatoComprasModel(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM,double descuentoCo,string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod )
+        {
+            //obtener el id de la categoria
+            int CategoriaIdr = idCategoriaRetorno(idCatPro);
+
+            //obtener el id del proveedor
+            int ProveedorIDr = retornarIDproveedorComp(idProveedorCo);
+
+            //inserta nueva image, a su vez se obtendra el ID
+            int idImagenModificarCompra = idImagenRetorno(rutaImagenMod, CategoriaIdr, "POR DEFECTO");
+
+
+            //actualiza tabla compra detalle
+            obj.getConexionDB().Open();
+            consultaSQL = "UPDATE tbCompra_detalle SET nombre_productoCom='"+nom+"', numFacturaCompra='"+numF+"', cantProdComprado='"+cantPrCom+"', precioProdCompra='"+prPrCom+"', IVA_compra='"+IVAcompraM+"' , descuentoCompra='"+descuentoCo+"',descripcionCompraProd='"+descrC+"' WHERE id_compraDetalle ='"+idCompraDatos+"'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            lector.Close();
+            obj.getConexionDB().Close();
+
+
+            //actualiza tabla compra encabezado
+            obj.getConexionDB().Open ();
+            consultaSQL = "UPDATE tbCompra_encabezado SET id_proveedor='"+ProveedorIDr+"'  WHERE id_compra_detalle = '"+idCompraDatos+"'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            lector.Close ();
+            obj.getConexionDB().Close ();
+
+
+            //actualiza tabla articulos
+            obj.getConexionDB().Open();
+            consultaSQL = "UPDATE tbArticulos SET id_categoria='"+CategoriaIdr+"', id_imagen='"+idImagenModificarCompra+"' WHERE id_producto='"+idCompraDatos+"'";
+            comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
+            lector= comandoConexion.ExecuteReader();
+            lector.Close();
+            obj.getConexionDB();
+
+        }
+
+        public void getModificarDatoComprasModel(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM, double descuentoCo, string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod)
+        {
+            ModificarDatoComprasModel(idCompraDatos, nom, numF, cantPrCom, prPrCom,IVAcompraM,descuentoCo, descrC, idProveedorCo, idCatPro, rutaImagenMod);
+        }
+
+
+        //metodo para obtener el id del proveedor
+        private int retornarIDproveedorComp(string nombreProveedor)
+        {
+            int idProveedorReturn = 0;
+
+            obj.getConexionDB().Open();
+            consultaSQL = "SELECT id_Proveedor FROM tbProveedores WHERE nombreProveedor='" + nombreProveedor + "'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            while (lector.Read())
+            {
+                idProveedorReturn = int.Parse(lector["id_Proveedor"].ToString());
+            }
+
+
+            lector.Close();
+            obj.getConexionDB().Close();
+
+
+            return idProveedorReturn;
+           
+        }
     }
 }

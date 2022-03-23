@@ -102,5 +102,16 @@ namespace SAIControlador
 
             return comprobarPathIMGController(rrpath);
         }
+
+        //6.0 controlador para modificar datos de la compra
+        private void datosModificarTabComprasDetalleController(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM, double descuentoCo, string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod)
+        {
+            oComprasModelo.datosModificarTabComprasDetalleMainModel(idCompraDatos, nom, numF, cantPrCom, prPrCom, IVAcompraM, descuentoCo,descrC, idProveedorCo, idCatPro, rutaImagenMod);
+        }
+
+        public void getModificarTabComprasDetalleController(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM, double descuentoCo, string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod)
+        {
+            datosModificarTabComprasDetalleController(idCompraDatos, nom, numF, cantPrCom, prPrCom, IVAcompraM, descuentoCo,descrC, idProveedorCo, idCatPro, rutaImagenMod);
+        }
     }
 }

@@ -90,5 +90,11 @@ namespace SAIModelo
             return oComprasModel.getComprobarPathIMG(pathR);
         }
 
+
+        public void datosModificarTabComprasDetalleMainModel(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM, double descuentoCo, string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod)
+        {
+            oComprasModel.getModificarDatoComprasModel(idCompraDatos, nom, numF, cantPrCom, prPrCom,IVAcompraM,descuentoCo, descrC, idProveedorCo, idCatPro, rutaImagenMod);
+        }
+
     }
 }

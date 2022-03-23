@@ -25,10 +25,7 @@ namespace SAIVista
                         
         }
 
-        private void homeForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         //metodo para llamar al formulario de productos
         private void tsmiProductos_Click(object sender, EventArgs e)
@@ -45,5 +42,7 @@ namespace SAIVista
 
             formularioMenu.Show();
         }
+
+
     }
 }

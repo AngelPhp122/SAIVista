@@ -182,6 +182,7 @@
             this.btnEditarCompra.TabIndex = 14;
             this.btnEditarCompra.Text = "Editar";
             this.btnEditarCompra.UseVisualStyleBackColor = true;
+            this.btnEditarCompra.Click += new System.EventHandler(this.btnEditarCompra_Click);
             // 
             // btnEliminarCompra
             // 

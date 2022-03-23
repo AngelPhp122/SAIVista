@@ -254,6 +254,15 @@ namespace SAIVista
                 
             }
         }
+
+        private void btnEditarCompra_Click(object sender, EventArgs e)
+        {
+            int datoIdEnvio = int.Parse(dtgCompras.SelectedRows[0].Cells[0].Value.ToString());
+
+            Form oFrmEditarCompra = new frmEditarCompra(datoIdEnvio);
+
+            oFrmEditarCompra.Show();
+        }
     }
 }
     

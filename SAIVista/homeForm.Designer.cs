@@ -170,7 +170,7 @@
             this.ClientSize = new System.Drawing.Size(767, 361);
             this.Controls.Add(this.menuStrip1);
             this.Name = "homeForm";
-            this.Load += new System.EventHandler(this.homeForm_Load);
+            
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

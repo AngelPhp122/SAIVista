@@ -88,6 +88,11 @@ namespace SAIControlador
             return oComprasController.getComprobarPathIMGController(pathl);
         }
 
+        public void actualizarDatosTabCompraDetalleMainController(int idCompraDatos, string nom, string numF, int cantPrCom, double prPrCom, double IVAcompraM, double descuentoCo, string descrC, string idProveedorCo, string idCatPro, string rutaImagenMod)
+        {
+            oComprasController.getModificarTabComprasDetalleController(idCompraDatos, nom, numF, cantPrCom, prPrCom, IVAcompraM, descuentoCo,descrC, idProveedorCo, idCatPro, rutaImagenMod);
+        }
+
         //****************************** finaliza controladores del mantenimiento de la  tablas Compras (Compras detalle y compras encabezado)**********************************
 
 
