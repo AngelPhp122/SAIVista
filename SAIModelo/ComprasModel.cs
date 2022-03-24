@@ -152,10 +152,14 @@ namespace SAIModelo
             string[,] datosDtgCompras;
             string[,] datosIdImagenCompras;
 
+            string[,] datosIDprodImg;
+
+            string[] temporalIDimagen;
+
             var listaComprasID = new List<string>();
             var listaProductoID = new List<string>();
             var listaImagenID = new List<string>();
-            //var listaDosIDimagen = new List<string>();
+            var listaDosIDproImg = new List<string>();
             var listaRutaImagen = new List<string>();
             var listaNombreCompra = new List<string>();
             //var listaDescripcion = new List<string>();
@@ -167,7 +171,7 @@ namespace SAIModelo
             var listaProveedorID = new List<string>();
             var listaCompraDetalleID = new List<string>();
             var listaFechaCompra = new List<string>();
-            //var listaIDcompraEncabezado = new List<string>();
+            var listaDosIDPRODUCTO = new List<string>();
 
 
             obj.getConexionDB().Open();
@@ -230,10 +234,31 @@ namespace SAIModelo
             lector.Close();
             obj.getConexionDB().Close();
 
+            //consulta para concatenar el ID del producto con la imagen
+
             
+
+            obj.getConexionDB().Open();
+            consultaSQL = "Select id_producto, id_imagen from tbArticulos";
+            comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
+            lector= comandoConexion.ExecuteReader();
+
+            while (lector.Read())
+            {
+                listaDosIDPRODUCTO.Add(lector["id_producto"].ToString());
+                listaDosIDproImg.Add(lector["id_imagen"].ToString());
+            }
+            
+            lector.Close();
+            obj.getConexionDB().Close();   
 
             datosIdImagenCompras = new string[listaImagenID.Count, 2];
             datosDtgCompras = new string[listaComprasID.Count, 11];
+
+            datosIDprodImg = new string[listaDosIDPRODUCTO.Count, 2];
+
+            temporalIDimagen = new string[listaImagenID.Count];
+
 
             for (int k = 0; k < listaImagenID.Count; k++)
             {
@@ -243,30 +268,55 @@ namespace SAIModelo
                 //datosIdImagenCompras[k, 2] = listaIDcompraEncabezado[k];
             }
 
+            for (int n = 0; n < listaDosIDPRODUCTO.Count; n++)
+            {
+               datosIDprodImg[n, 0] = listaDosIDPRODUCTO[n]; // id del producto
+               datosIDprodImg[n, 1] = listaDosIDproImg[n];  //id de la imagen
+
+                Console.WriteLine(datosIDprodImg[n, 1]);
+
+            }
+
+           
 
             for (int i = 0; i < listaComprasID.Count; i++)
             {
 
-
+                
                 datosDtgCompras[i, 0] = listaComprasID[i];
                 datosDtgCompras[i, 1] = listaUsuarioID[i];
                 datosDtgCompras[i, 2] = listaProveedorID[i];
                 datosDtgCompras[i, 3] = listaProductoID[i];
                 datosDtgCompras[i, 4] = listaCompraDetalleID[i];
-               datosDtgCompras[i, 5] = listaNombreCompra[i];
+                datosDtgCompras[i, 5] = listaNombreCompra[i];
                 datosDtgCompras[i, 6] = listaNumFactura[i];
                 datosDtgCompras[i, 7] = listaCantidad[i];
                 datosDtgCompras[i, 8] = listaPrecio[i];
-                datosDtgCompras[i,9] = listaFechaCompra[i];
-                datosDtgCompras[i,10] = listaImagenID[i];
-                for (int j = 0; j < datosIdImagenCompras.GetLength(0); j++)
+                datosDtgCompras[i, 9] = listaFechaCompra[i];
+
+                for (int x = 0; x < listaImagenID.Count; x++)
                 {
-                   if (datosDtgCompras[i, 10] == datosIdImagenCompras[j, 0])
+                    temporalIDimagen[x] = listaImagenID[x];
+                }
+                //datosDtgCompras[i,10] = listaImagenID[i];
+                
+                for (int j = 0; j < listaImagenID.Count; j++)
+                {
+                    if (temporalIDimagen[j] == datosIDprodImg[i, 1])
                     {
-                       datosDtgCompras[i, 10] = listaRutaImagen[j];
+
+                        for (int h = 0; h < datosIdImagenCompras.GetLength(0) ;h++)
+                        {
+                            if (datosIDprodImg[i,1] == datosIdImagenCompras[h,0])
+                            {
+                                datosDtgCompras[i, 10] = datosIdImagenCompras[h, 1];
+                            }
+                        }
+                                              
+                        
                     }
                 }
-
+              
 
             }
 
