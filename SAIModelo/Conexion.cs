@@ -13,9 +13,14 @@ namespace SAIModelo
     {
         private SqlConnection conexionDB;
         private string cadenaConexion;
-        private const string servidor = "DESKTOP-37CLJ35";
-        private const string DBName = "SAIDB";
 
+        //Conexion Carlos 
+        //private const string servidor = "DESKTOP-LVOSUC0";
+
+        //Coexion Angel
+        private const string servidor = "DESKTOP-37CLJ35";
+
+        private const string DBName = "SAIDB";
 
         public void setConexionDB(SqlConnection conexionBD) { 
         

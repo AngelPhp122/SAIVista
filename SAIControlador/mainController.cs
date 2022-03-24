@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,34 @@ namespace SAIControlador
 
         ProductosController oProductosController = new ProductosController();
         ComprasController oComprasController = new ComprasController();
-       
+        TiposUsuarioController oTiposUsuario = new TiposUsuarioController();
+
+
+
+        //***************** Inicia controladores del mantenimiento de la tabla Tipos Usuarios ************************************
+
+
+        public DataTable consulta_a_dgv()
+        {
+            return oTiposUsuario.consulta_a_dgv();
+        }
+
+
+        public Boolean comprobarRegistro(string buscar)
+        {
+            return oTiposUsuario.comprobarRegistro(buscar);
+        }
+
+        public Boolean instruccion_sql(string opcion, string[] valores)
+        {
+            return oTiposUsuario.instruccion_sql(opcion, valores);
+        }
+
+        //****************************** finaliza controladores del mantenimiento de la tabla Tipos Usuarios **********************************
+
+
+
+
 
         //***************** Inicia controladores del mantenimiento de la tabla Articulos (tbArticulos) ************************************
         public string [,] datosCbxCategoriaMainController()

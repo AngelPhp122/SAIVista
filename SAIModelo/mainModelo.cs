@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
-using System.Data.Sql;
 
 
 
@@ -16,6 +14,29 @@ namespace SAIModelo
     {
         ProductosModel oProductosModel = new ProductosModel();
         ComprasModel oComprasModel = new ComprasModel();
+        TiposUsuarioModel oTiposUsuarioModel = new TiposUsuarioModel();
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA USUARIOS ******************************
+
+
+        public DataTable consulta_a_dgv()
+        {
+            return oTiposUsuarioModel.consulta_a_dgv();
+        }
+
+
+        public Boolean comprobarRegistro(string buscar)
+        {
+            return oTiposUsuarioModel.comprobarRegistro(buscar);
+        }
+
+        public Boolean instruccion_sql(string opcion, string[] valores)
+        {
+            return oTiposUsuarioModel.instruccion_sql(opcion, valores);
+        }
+
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA USUARIOS ******************************
 
 
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA ARTICULOS ******************************

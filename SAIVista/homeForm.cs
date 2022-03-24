@@ -43,6 +43,16 @@ namespace SAIVista
             formularioMenu.Show();
         }
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void tiposUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTiposUsuario frm = new frmTiposUsuario();
+
+            frm.Show();
+        }
     }
 }
