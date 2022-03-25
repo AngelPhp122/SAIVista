@@ -574,7 +574,7 @@ namespace SAIModelo
 
             //actualiza tabla articulos
             obj.getConexionDB().Open();
-            consultaSQL = "UPDATE tbArticulos SET id_categoria='"+CategoriaIdr+"', id_imagen='"+idImagenModificarCompra+"' WHERE id_producto='"+idCompraDatos+"'";
+            consultaSQL = "UPDATE tbArticulos SET id_categoria='"+CategoriaIdr+"', id_imagen='"+idImagenModificarCompra+"', nombreArticulo='"+nom+"', descripcionArt='"+descrC+"', cantidad='"+cantPrCom+"', precio='"+prPrCom+"' WHERE id_producto='"+idCompraDatos+"'";
             comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
             lector= comandoConexion.ExecuteReader();
             lector.Close();

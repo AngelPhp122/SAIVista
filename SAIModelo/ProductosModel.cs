@@ -127,7 +127,7 @@ namespace SAIModelo
 
             }
 
-            // Console.WriteLine(datos[0]+"este dato trajo");
+            
 
             return datos;
 
@@ -325,6 +325,8 @@ namespace SAIModelo
         {
 
             int idArticulo = idProductoModelo;
+
+            
 
             obj.getConexionDB().Open();
             consultaSQL = "DELETE FROM tbArticulos WHERE id_producto='" + idProductoModelo + "'";
