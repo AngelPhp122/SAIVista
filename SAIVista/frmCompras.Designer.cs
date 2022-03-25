@@ -78,6 +78,7 @@
             this.tbxIVAcompra.Name = "tbxIVAcompra";
             this.tbxIVAcompra.Size = new System.Drawing.Size(170, 20);
             this.tbxIVAcompra.TabIndex = 2;
+            this.tbxIVAcompra.TextChanged += new System.EventHandler(this.tbxIVAcompra_TextChanged);
             // 
             // tbxPrecioProdCompra
             // 
@@ -192,6 +193,7 @@
             this.btnEliminarCompra.TabIndex = 15;
             this.btnEliminarCompra.Text = "Eliminar";
             this.btnEliminarCompra.UseVisualStyleBackColor = true;
+            this.btnEliminarCompra.Click += new System.EventHandler(this.btnEliminarCompra_Click);
             // 
             // tbxDescripcionCompra
             // 

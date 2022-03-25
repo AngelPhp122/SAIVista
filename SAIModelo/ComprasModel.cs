@@ -611,5 +611,45 @@ namespace SAIModelo
             return idProveedorReturn;
            
         }
+
+
+        //************************** Metodo para la eliminacion de la tabla compras detalle y compras encabezados por ID ************************
+
+        private void eliminarDatoTabCompras(int idCompraEliminar)
+        {
+            
+
+            // tabla compra encabezado
+            obj.getConexionDB().Open();
+            consultaSQL = "DELETE FROM tbCompra_encabezado WHERE id_compra='" + idCompraEliminar + "'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            lector.Close();
+            obj.getConexionDB().Close();
+
+            //tabla compra detalle
+            obj.getConexionDB().Open();
+            consultaSQL = "DELETE FROM tbCompra_detalle WHERE id_compraDetalle='" + idCompraEliminar + "'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            lector.Close();
+            obj.getConexionDB().Close();
+
+            //tabla articulos
+            obj.getConexionDB().Open();
+            consultaSQL = "DELETE FROM tbArticulos WHERE id_producto='" + idCompraEliminar + "'";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
+            lector.Close();
+            obj.getConexionDB().Close();
+        }
+
+        public void getEliminarDatoTabCompras(int idCompraEliminar)
+        {
+            eliminarDatoTabCompras(idCompraEliminar);
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace SAIVista
             string[,] d;
             string[,] b;
 
+            
+
             try
             {
                 //validacion de combobox vacio
@@ -92,8 +94,8 @@ namespace SAIVista
 
             int comprobar;
 
-            //try
-            //{
+            try
+            {
 
                 comprobar = dtgCompras.Rows.Count;
                 dtgCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -188,55 +190,89 @@ namespace SAIVista
 
 
 
-          //  }
-           //catch (Exception ex)
-           //{
+            }
+           catch (Exception ex)
+           {
 
-          //      MessageBox.Show(ex.Message);
-//            }
+               MessageBox.Show(ex.Message);
+            }
             
+        }
+
+        //metodo para limpiar cajas
+        public void limpiarCajas()
+        {
+
+            cbxCategoria.Text = "";//
+            cbxProveedor.Text = "";//
+            tbxNombreProducto.Text = "";//
+            txbNumeroFactura.Text = ""; //
+            tbxCantProductoComprado.Text = "";//
+            tbxPrecioProdCompra.Text = "";//
+            tbxDescripcionCompra.Text = "";//
+            tbxIVAcompra.Text = "";
+            
+
+
         }
 
         private void btnAgregarCompra_Click(object sender, EventArgs e)
         {
-             string[] datos = new string [10];
-             //string[,] datos2;
+            string[] datos = new string[10];
 
 
-           datos[0] =  tbxNombreProducto.Text;
-           datos[1] = txbNumeroFactura.Text;
-           datos[2] = tbxCantProductoComprado.Text;
-           datos[3] = tbxPrecioProdCompra.Text;
-            double resultIVAComp = ((int.Parse(datos[2])) * (double.Parse(datos[3]))) * IVA;
-            datos[4] =  resultIVAComp.ToString();
-           datos[5] =  tbxDescuentoComp.Text;
-            datos[6] = tbxDescripcionCompra.Text;
+            if (String.IsNullOrWhiteSpace(tbxNombreProducto.Text) || String.IsNullOrWhiteSpace(cbxCategoria.Text) || String.IsNullOrWhiteSpace(tbxDescripcionCompra.Text) || String.IsNullOrWhiteSpace(tbxCantProductoComprado.Text) || String.IsNullOrWhiteSpace(tbxPrecioProdCompra.Text) || String.IsNullOrWhiteSpace(cbxProveedor.Text) || String.IsNullOrWhiteSpace(txbNumeroFactura.Text) || String.IsNullOrWhiteSpace(tbxIVAcompra.Text)) {
 
-            for(int i = 0; i < idProveedores.GetLength(0); i++)
-            {
-                if (cbxProveedor.Text.Equals(idProveedores[i,1]))
-                {
-                    datos[7] = idProveedores[i,0];
-                }
-                
+                if (String.IsNullOrWhiteSpace(tbxNombreProducto.Text)) { errorProvider1Compras.SetError(this.tbxNombreProducto, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(cbxCategoria.Text)) { errorProvider1Compras.SetError(this.cbxCategoria, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(tbxDescripcionCompra.Text)) { errorProvider1Compras.SetError(this.tbxDescripcionCompra, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(tbxCantProductoComprado.Text)) { errorProvider1Compras.SetError(this.tbxCantProductoComprado, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(tbxPrecioProdCompra.Text)) { errorProvider1Compras.SetError(this.tbxPrecioProdCompra, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(cbxProveedor.Text)){ errorProvider1Compras.SetError(this.cbxProveedor, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(txbNumeroFactura.Text)) { errorProvider1Compras.SetError(this.txbNumeroFactura, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(tbxIVAcompra.Text)) { errorProvider1Compras.SetError(this.tbxIVAcompra, "campos obligatorios"); }
+
+
             }
-
-            for(int j = 0; j < idCategorias.GetLength(0); j++)
+            else
             {
-                if (cbxCategoria.Text.Equals(idCategorias[j, 1]))
+                errorProvider1Compras.Clear();
+                datos[0] = tbxNombreProducto.Text;
+                datos[1] = txbNumeroFactura.Text;
+                datos[2] = tbxCantProductoComprado.Text;
+                datos[3] = tbxPrecioProdCompra.Text;
+                double resultIVAComp = ((int.Parse(datos[2])) * (double.Parse(datos[3]))) * IVA;
+                datos[4] = resultIVAComp.ToString();
+                datos[5] = tbxDescuentoComp.Text;
+                datos[6] = tbxDescripcionCompra.Text;
+
+
+
+                for (int i = 0; i < idProveedores.GetLength(0); i++)
                 {
-                    datos[9] = idCategorias[j, 0];
+                    if (cbxProveedor.Text.Equals(idProveedores[i, 1]))
+                    {
+                        datos[7] = idProveedores[i, 0];
+                    }
+
                 }
+
+                for (int j = 0; j < idCategorias.GetLength(0); j++)
+                {
+                    if (cbxCategoria.Text.Equals(idCategorias[j, 1]))
+                    {
+                        datos[9] = idCategorias[j, 0];
+                    }
+                }
+
+                datos[8] = rutaImagenCompras;
+
+                MessageBox.Show(datos[9]);
+
+                oControladorCompras.datosInsertarTabComprasImagenesMainController(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8], datos[9]);
+
+                frmCompras_Load(sender, e);
             }
-            
-           datos[8] = rutaImagenCompras;
-
-            MessageBox.Show(datos[9]);
-            
-            oControladorCompras.datosInsertarTabComprasImagenesMainController(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8], datos[9]);
-
-            frmCompras_Load(sender, e);
-
         }
 
         private void btnImagenCompra_Click(object sender, EventArgs e)
@@ -264,6 +300,40 @@ namespace SAIVista
             Form oFrmEditarCompra = new frmEditarCompra(datoIdEnvio);
 
             oFrmEditarCompra.Show();
+        }
+
+        
+        
+
+        private void tbxIVAcompra_TextChanged(object sender, EventArgs e)
+        {
+            string[] datos = new string[2];
+
+            datos[0] = tbxCantProductoComprado.Text;
+            datos[1] = tbxPrecioProdCompra.Text;
+
+            if (tbxCantProductoComprado.Text.Equals(null))
+            {
+                tbxCantProductoComprado.Text = "0";
+                if (tbxPrecioProdCompra.Text.Equals(null))
+                {
+                    tbxPrecioProdCompra.Text = "0.00";
+                    double resultIVAComp = ((int.Parse(datos[0])) * (double.Parse(datos[1]))) * IVA;
+
+                    tbxIVAcompra.Text = resultIVAComp.ToString();
+                }
+            }
+            
+        }
+
+        private void btnEliminarCompra_Click(object sender, EventArgs e)
+        {
+            int idEliminar = 0;
+            idEliminar = int.Parse(dtgCompras.SelectedRows[0].Cells[0].Value.ToString());
+            dtgCompras.Rows.RemoveAt(dtgCompras.CurrentRow.Index);
+
+            oControladorCompras.eliminarDatosTabComprasMainController(idEliminar);
+
         }
     }
 }
