@@ -13,6 +13,33 @@ namespace SAIControlador
         ProductosController oProductosController = new ProductosController();
         ComprasController oComprasController = new ComprasController();
         TiposUsuarioController oTiposUsuario = new TiposUsuarioController();
+        UsuariosControl oUsuario = new UsuariosControl();
+
+
+        //***************** Inicia controladores del mantenimiento de la tabla Usuarios ************************************
+
+        public DataTable llenar_comboBoxUsr()
+        {
+            return oUsuario.llenar_comboBoxUsr();
+        }
+
+        public DataTable consulta_a_dgvUsr()
+        {
+            return oUsuario.consulta_a_dgvUsr();
+        }
+
+
+        public Boolean comprobarRegistroUsr(string buscar)
+        {
+            return oUsuario.comprobarRegistroUsr(buscar);
+        }
+
+        public Boolean instruccion_sqlUsr(string opcion, string[] valores)
+        {
+            return oUsuario.instruccion_sqlUsr(opcion, valores);
+        }
+
+        //****************************** finaliza controladores del mantenimiento de la tabla Usuarios **********************************
 
 
 

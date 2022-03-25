@@ -54,5 +54,13 @@ namespace SAIVista
 
             frm.Show();
         }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmUsuarios frm = new frmUsuarios();
+
+            frm.Show();
+        }
     }
 }

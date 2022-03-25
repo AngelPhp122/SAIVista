@@ -30,7 +30,6 @@ namespace SAIVista
         }
 
 
-        string comando;
         public void actualizar_consulta()
         {
             dtgTipos.AllowUserToAddRows = false;
@@ -40,17 +39,6 @@ namespace SAIVista
         }
 
 
-
-
-        //        private void dataregistro_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        //        {
-
-        //            Txtcodigo.Text = dataregistro[0, dataregistro.CurrentCell.RowIndex].Value.ToString();
-        //            txtnombre.Text = dataregistro[1, dataregistro.CurrentCell.RowIndex].Value.ToString();
-        //            txtcontraseña.Text = dataregistro[2, dataregistro.CurrentCell.RowIndex].Value.ToString();
-        //            cmbrol.SelectedIndex = Int32.Parse(dataregistro[3, dataregistro.CurrentCell.RowIndex].Value.ToString());
-        //            Txtcodigo.Enabled = false;
-        //        }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

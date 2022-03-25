@@ -15,6 +15,35 @@ namespace SAIModelo
         ProductosModel oProductosModel = new ProductosModel();
         ComprasModel oComprasModel = new ComprasModel();
         TiposUsuarioModel oTiposUsuarioModel = new TiposUsuarioModel();
+        UsuariosModel oUsuarioModel = new UsuariosModel();
+
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL USUARIOS ******************************
+
+
+        public DataTable llenar_comboBoxUsr()
+        {
+            return oUsuarioModel.llenar_comboBoxUsr();
+        }
+        public DataTable consulta_a_dgvUsr()
+        {
+            return oUsuarioModel.consulta_a_dgvUsr();
+        }
+
+
+        public Boolean comprobarRegistroUsr(string buscar)
+        {
+            return oUsuarioModel.comprobarRegistroUsr(buscar);
+        }
+
+        public Boolean instruccion_sqlUsr(string opcion, string[] valores)
+        {
+            return oUsuarioModel.instruccion_sqlUsr(opcion, valores);
+        }
+
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL USUARIOS ******************************
+
 
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA USUARIOS ******************************
 
