@@ -78,6 +78,7 @@
             this.tbxIVAcompra.Name = "tbxIVAcompra";
             this.tbxIVAcompra.Size = new System.Drawing.Size(170, 20);
             this.tbxIVAcompra.TabIndex = 2;
+            this.tbxIVAcompra.TextChanged += new System.EventHandler(this.tbxIVAcompra_TextChanged);
             // 
             // tbxPrecioProdCompra
             // 
@@ -161,7 +162,7 @@
             this.dtgCompras.Location = new System.Drawing.Point(290, 73);
             this.dtgCompras.Name = "dtgCompras";
             this.dtgCompras.RowTemplate.Height = 180;
-            this.dtgCompras.Size = new System.Drawing.Size(834, 511);
+            this.dtgCompras.Size = new System.Drawing.Size(1223, 511);
             this.dtgCompras.TabIndex = 12;
             // 
             // btnAgregarCompra
@@ -192,6 +193,7 @@
             this.btnEliminarCompra.TabIndex = 15;
             this.btnEliminarCompra.Text = "Eliminar";
             this.btnEliminarCompra.UseVisualStyleBackColor = true;
+            this.btnEliminarCompra.Click += new System.EventHandler(this.btnEliminarCompra_Click);
             // 
             // tbxDescripcionCompra
             // 
@@ -265,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 625);
+            this.ClientSize = new System.Drawing.Size(1525, 659);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.lbCategoria);
             this.Controls.Add(this.btnImagenCompra);

@@ -146,5 +146,10 @@ namespace SAIModelo
             oComprasModel.getModificarDatoComprasModel(idCompraDatos, nom, numF, cantPrCom, prPrCom,IVAcompraM,descuentoCo, descrC, idProveedorCo, idCatPro, rutaImagenMod);
         }
 
+        public void eliminarDatosTabCompraMainModel(int idDatoEliminarComp)
+        {
+            oComprasModel.getEliminarDatoTabCompras(idDatoEliminarComp);
+        }
+
     }
 }

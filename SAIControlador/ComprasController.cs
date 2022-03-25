@@ -113,5 +113,19 @@ namespace SAIControlador
         {
             datosModificarTabComprasDetalleController(idCompraDatos, nom, numF, cantPrCom, prPrCom, IVAcompraM, descuentoCo,descrC, idProveedorCo, idCatPro, rutaImagenMod);
         }
+
+        //7.0 controlador para eliminar datos de la compra
+
+        private void datosEliminarTabCompra(int idCompraEliminar)
+        {
+            oComprasModelo.eliminarDatosTabCompraMainModel(idCompraEliminar);
+        }
+
+        // 7.0 metodo para acceder a datosEliminarTabCompra(int idCompraEliminar)
+
+        public void getDatosEliminarTabCompra(int idCompraElimnar)
+        {
+            datosEliminarTabCompra(idCompraElimnar);
+        }
     }
 }

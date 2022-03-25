@@ -148,6 +148,11 @@ namespace SAIControlador
             oComprasController.getModificarTabComprasDetalleController(idCompraDatos, nom, numF, cantPrCom, prPrCom, IVAcompraM, descuentoCo,descrC, idProveedorCo, idCatPro, rutaImagenMod);
         }
 
+        public void eliminarDatosTabComprasMainController(int idEliminarC)
+        {
+            oComprasController.getDatosEliminarTabCompra(idEliminarC);
+        }
+
         //****************************** finaliza controladores del mantenimiento de la  tablas Compras (Compras detalle y compras encabezado)**********************************
 
 
