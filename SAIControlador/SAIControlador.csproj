@@ -46,6 +46,7 @@
     <Compile Include="ProductosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedoresController.cs" />
+    <Compile Include="ReportesController.cs" />
     <Compile Include="TiposUsuarioController.cs" />
     <Compile Include="UsuariosControl.cs" />
   </ItemGroup>

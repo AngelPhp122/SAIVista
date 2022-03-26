@@ -16,6 +16,7 @@ namespace SAIModelo
         ComprasModel oComprasModel = new ComprasModel();
         TiposUsuarioModel oTiposUsuarioModel = new TiposUsuarioModel();
         UsuariosModel oUsuarioModel = new UsuariosModel();
+        ReportesModel oReportesModel = new ReportesModel(); 
 
 
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL USUARIOS ******************************
@@ -150,6 +151,22 @@ namespace SAIModelo
         {
             oComprasModel.getEliminarDatoTabCompras(idDatoEliminarComp);
         }
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLAS COMPRAS ******************************
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL REPORTES ******************************
+
+
+        public string [,]  reportesComprasMainModel(string fechaINICIAL, string fechaFin)
+        {
+            string[,] arregloDatos;
+
+           arregloDatos = oReportesModel.getDatosReporte(fechaINICIAL, fechaFin);
+
+            return arregloDatos; 
+        }
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL REPORTES ******************************
 
     }
 }
