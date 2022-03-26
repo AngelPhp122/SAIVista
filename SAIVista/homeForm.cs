@@ -63,16 +63,25 @@ namespace SAIVista
             frm.Show();
         }
 
-        private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void reporteComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form formularioMenu = new frmReporteCompras();
 
+            formularioMenu.Show();
         }
 
-        private void tsmiVenderProducto_Click(object sender, EventArgs e)
+        private void registroClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVentas frm = new frmVentas();
+            Form formularioMenu = new frmClientes();
 
-            frm.Show();
+            formularioMenu.Show();
+        }
+
+        private void consultaClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formularioMenu = new frmConsultaCliente();
+
+            formularioMenu.Show();
         }
     }
 }

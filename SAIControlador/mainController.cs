@@ -14,6 +14,7 @@ namespace SAIControlador
         ComprasController oComprasController = new ComprasController();
         TiposUsuarioController oTiposUsuario = new TiposUsuarioController();
         UsuariosControl oUsuario = new UsuariosControl();
+        ReportesController oReportesController = new ReportesController();  
 
 
         //***************** Inicia controladores del mantenimiento de la tabla Usuarios ************************************
@@ -155,7 +156,14 @@ namespace SAIControlador
 
         //****************************** finaliza controladores del mantenimiento de la  tablas Compras (Compras detalle y compras encabezado)**********************************
 
+        //***************************** inicia Controladores para generar reportes ****************************************************
 
+        public string [,] datosReportesComprasMainController(string fechaInicial, string fechaFInal)
+        {
+            return oReportesController.getRecibeDatosReportesController(fechaInicial, fechaFInal);
+        }
+
+        //***************************** i Controladores para generar reportes ****************************************************
 
 
     }
