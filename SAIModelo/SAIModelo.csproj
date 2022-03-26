@@ -50,6 +50,7 @@
     <Compile Include="ProveedoresModel.cs" />
     <Compile Include="TiposUsuarioModel.cs" />
     <Compile Include="UsuariosModel.cs" />
+    <Compile Include="VentaModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

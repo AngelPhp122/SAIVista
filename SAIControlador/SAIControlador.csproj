@@ -48,6 +48,7 @@
     <Compile Include="ProveedoresController.cs" />
     <Compile Include="TiposUsuarioController.cs" />
     <Compile Include="UsuariosControl.cs" />
+    <Compile Include="VentaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAIModelo\SAIModelo.csproj">

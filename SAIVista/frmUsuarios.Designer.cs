@@ -62,6 +62,7 @@
             this.dtgUsuarios.Size = new System.Drawing.Size(675, 487);
             this.dtgUsuarios.TabIndex = 51;
             this.dtgUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellContentClick);
+            this.dtgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellContentClick_1);
             // 
             // btnLimpiar
             // 

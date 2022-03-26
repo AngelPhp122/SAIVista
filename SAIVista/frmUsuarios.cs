@@ -144,5 +144,10 @@ namespace SAIVista
                 +"-"+ dtgUsuarios[6, dtgUsuarios.CurrentCell.RowIndex].Value.ToString();
             modificando = true;
         }
+
+        private void dtgUsuarios_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

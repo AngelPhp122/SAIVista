@@ -55,7 +55,7 @@ namespace SAIVista
             this.lbProductosTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.lbProductosTitulo.Location = new System.Drawing.Point(29, 42);
             this.lbProductosTitulo.Name = "lbProductosTitulo";
-            this.lbProductosTitulo.Size = new System.Drawing.Size(170, 39);
+            this.lbProductosTitulo.Size = new System.Drawing.Size(208, 48);
             this.lbProductosTitulo.TabIndex = 0;
             this.lbProductosTitulo.Text = "Productos";
             // 
@@ -72,7 +72,7 @@ namespace SAIVista
             this.lbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbCategoria.Location = new System.Drawing.Point(31, 126);
             this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(97, 25);
+            this.lbCategoria.Size = new System.Drawing.Size(122, 29);
             this.lbCategoria.TabIndex = 1;
             this.lbCategoria.Text = "Categoria";
             // 
@@ -81,8 +81,9 @@ namespace SAIVista
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(36, 166);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(202, 21);
+            this.cbxCategoria.Size = new System.Drawing.Size(202, 24);
             this.cbxCategoria.TabIndex = 2;
+            this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
             // 
             // lbNombre
             // 
@@ -90,7 +91,7 @@ namespace SAIVista
             this.lbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbNombre.Location = new System.Drawing.Point(31, 201);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(81, 25);
+            this.lbNombre.Size = new System.Drawing.Size(103, 29);
             this.lbNombre.TabIndex = 3;
             this.lbNombre.Text = "Nombre";
             // 
@@ -98,7 +99,7 @@ namespace SAIVista
             // 
             this.tbNombre.Location = new System.Drawing.Point(36, 229);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(202, 20);
+            this.tbNombre.Size = new System.Drawing.Size(202, 22);
             this.tbNombre.TabIndex = 4;
             // 
             // lbDescripcion
@@ -107,7 +108,7 @@ namespace SAIVista
             this.lbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbDescripcion.Location = new System.Drawing.Point(31, 266);
             this.lbDescripcion.Name = "lbDescripcion";
-            this.lbDescripcion.Size = new System.Drawing.Size(114, 25);
+            this.lbDescripcion.Size = new System.Drawing.Size(146, 29);
             this.lbDescripcion.TabIndex = 5;
             this.lbDescripcion.Text = "Descripcion";
             // 
@@ -115,7 +116,7 @@ namespace SAIVista
             // 
             this.tbDescripcion.Location = new System.Drawing.Point(36, 294);
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(202, 20);
+            this.tbDescripcion.Size = new System.Drawing.Size(202, 22);
             this.tbDescripcion.TabIndex = 6;
             // 
             // lbCantidad
@@ -124,7 +125,7 @@ namespace SAIVista
             this.lbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbCantidad.Location = new System.Drawing.Point(31, 335);
             this.lbCantidad.Name = "lbCantidad";
-            this.lbCantidad.Size = new System.Drawing.Size(91, 25);
+            this.lbCantidad.Size = new System.Drawing.Size(114, 29);
             this.lbCantidad.TabIndex = 7;
             this.lbCantidad.Text = "Cantidad";
             // 
@@ -132,7 +133,7 @@ namespace SAIVista
             // 
             this.tbCantidad.Location = new System.Drawing.Point(36, 363);
             this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(202, 20);
+            this.tbCantidad.Size = new System.Drawing.Size(202, 22);
             this.tbCantidad.TabIndex = 8;
             // 
             // lbPrecio
@@ -141,7 +142,7 @@ namespace SAIVista
             this.lbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbPrecio.Location = new System.Drawing.Point(31, 402);
             this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(67, 25);
+            this.lbPrecio.Size = new System.Drawing.Size(85, 29);
             this.lbPrecio.TabIndex = 9;
             this.lbPrecio.Text = "Precio";
             // 
@@ -149,7 +150,7 @@ namespace SAIVista
             // 
             this.tbPrecio.Location = new System.Drawing.Point(36, 430);
             this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(202, 20);
+            this.tbPrecio.Size = new System.Drawing.Size(202, 22);
             this.tbPrecio.TabIndex = 10;
             // 
             // lbImagen
@@ -158,7 +159,7 @@ namespace SAIVista
             this.lbImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.lbImagen.Location = new System.Drawing.Point(31, 471);
             this.lbImagen.Name = "lbImagen";
-            this.lbImagen.Size = new System.Drawing.Size(77, 25);
+            this.lbImagen.Size = new System.Drawing.Size(97, 29);
             this.lbImagen.TabIndex = 11;
             this.lbImagen.Text = "Imagen";
             // 
@@ -178,6 +179,7 @@ namespace SAIVista
             this.dtgArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgArticulos.Location = new System.Drawing.Point(266, 42);
             this.dtgArticulos.Name = "dtgArticulos";
+            this.dtgArticulos.RowHeadersWidth = 51;
             this.dtgArticulos.RowTemplate.Height = 180;
             this.dtgArticulos.Size = new System.Drawing.Size(1042, 499);
             this.dtgArticulos.TabIndex = 13;
@@ -217,7 +219,7 @@ namespace SAIVista
             this.lbIndexCat.AutoSize = true;
             this.lbIndexCat.Location = new System.Drawing.Point(12, 169);
             this.lbIndexCat.Name = "lbIndexCat";
-            this.lbIndexCat.Size = new System.Drawing.Size(10, 13);
+            this.lbIndexCat.Size = new System.Drawing.Size(12, 17);
             this.lbIndexCat.TabIndex = 17;
             this.lbIndexCat.Text = ".";
             this.lbIndexCat.Visible = false;
@@ -552,7 +554,10 @@ namespace SAIVista
             Close();
         }
 
-        
+        private void cbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
        
     }
