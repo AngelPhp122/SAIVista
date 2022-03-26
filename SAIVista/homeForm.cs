@@ -69,5 +69,19 @@ namespace SAIVista
 
             formularioMenu.Show();
         }
+
+        private void registroClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formularioMenu = new frmClientes();
+
+            formularioMenu.Show();
+        }
+
+        private void consultaClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formularioMenu = new frmConsultaCliente();
+
+            formularioMenu.Show();
+        }
     }
 }

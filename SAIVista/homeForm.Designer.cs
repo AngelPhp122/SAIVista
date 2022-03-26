@@ -51,6 +51,8 @@
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,18 +106,21 @@
             // tsmiProductos
             // 
             this.tsmiProductos.Name = "tsmiProductos";
-            this.tsmiProductos.Size = new System.Drawing.Size(130, 22);
+            this.tsmiProductos.Size = new System.Drawing.Size(180, 22);
             this.tsmiProductos.Text = "Productos";
             this.tsmiProductos.Click += new System.EventHandler(this.tsmiProductos_Click);
             // 
             // tsmiCategoria
             // 
             this.tsmiCategoria.Name = "tsmiCategoria";
-            this.tsmiCategoria.Size = new System.Drawing.Size(130, 22);
+            this.tsmiCategoria.Size = new System.Drawing.Size(180, 22);
             this.tsmiCategoria.Text = "Categorias";
             // 
             // tsmiClientes
             // 
+            this.tsmiClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroClientesToolStripMenuItem,
+            this.consultaClientesToolStripMenuItem});
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.Size = new System.Drawing.Size(61, 20);
             this.tsmiClientes.Text = "Clientes";
@@ -143,7 +148,7 @@
             // tsmiSalir
             // 
             this.tsmiSalir.Name = "tsmiSalir";
-            this.tsmiSalir.Size = new System.Drawing.Size(96, 22);
+            this.tsmiSalir.Size = new System.Drawing.Size(180, 22);
             this.tsmiSalir.Text = "Salir";
             // 
             // comprasToolStripMenuItem
@@ -157,7 +162,7 @@
             // registrarCompraToolStripMenuItem
             // 
             this.registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            this.registrarCompraToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.registrarCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             this.registrarCompraToolStripMenuItem.Click += new System.EventHandler(this.registrarCompraToolStripMenuItem_Click);
             // 
@@ -172,7 +177,7 @@
             // registrarProveedorToolStripMenuItem
             // 
             this.registrarProveedorToolStripMenuItem.Name = "registrarProveedorToolStripMenuItem";
-            this.registrarProveedorToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.registrarProveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarProveedorToolStripMenuItem.Text = "Registrar Proveedor";
             // 
             // toolStripMenuItem1
@@ -187,14 +192,14 @@
             // tiposUsuarioToolStripMenuItem
             // 
             this.tiposUsuarioToolStripMenuItem.Name = "tiposUsuarioToolStripMenuItem";
-            this.tiposUsuarioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tiposUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tiposUsuarioToolStripMenuItem.Text = "Tipos Usuario";
             this.tiposUsuarioToolStripMenuItem.Click += new System.EventHandler(this.tiposUsuarioToolStripMenuItem_Click);
             // 
             // gestionDeUsuariosToolStripMenuItem
             // 
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
-            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
             this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
@@ -212,6 +217,20 @@
             this.reporteComprasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reporteComprasToolStripMenuItem.Text = "Reporte Compras";
             this.reporteComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteComprasToolStripMenuItem_Click);
+            // 
+            // registroClientesToolStripMenuItem
+            // 
+            this.registroClientesToolStripMenuItem.Name = "registroClientesToolStripMenuItem";
+            this.registroClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registroClientesToolStripMenuItem.Text = "Registro Clientes";
+            this.registroClientesToolStripMenuItem.Click += new System.EventHandler(this.registroClientesToolStripMenuItem_Click);
+            // 
+            // consultaClientesToolStripMenuItem
+            // 
+            this.consultaClientesToolStripMenuItem.Name = "consultaClientesToolStripMenuItem";
+            this.consultaClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultaClientesToolStripMenuItem.Text = "Consulta Clientes";
+            this.consultaClientesToolStripMenuItem.Click += new System.EventHandler(this.consultaClientesToolStripMenuItem_Click);
             // 
             // homeForm
             // 
@@ -249,6 +268,8 @@
         private System.Windows.Forms.ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteComprasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaClientesToolStripMenuItem;
     }
 }
 
