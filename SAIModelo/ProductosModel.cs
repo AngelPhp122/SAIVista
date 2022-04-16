@@ -31,8 +31,8 @@ namespace SAIModelo
             {
                 int idImagen = 0;
 
-                insertarRutaImagen(f, a);
-                string[] datosImagen0 = new string[2];
+                insertarRutaImagen(f);
+                string[] datosImagen0 = new string[1];
                 datosImagen0 = retornoIdImagenAgregar(f);
 
                 if (datosImagen0[1] == f)
@@ -46,7 +46,7 @@ namespace SAIModelo
 
 
 
-                consultaSQL = "INSERT INTO tbArticulos(id_categoria, id_imagen, id_usuario, nombreArticulo, descripcionArt, cantidad, precio, fechaCaptura) values('" + int.Parse(a) + "','" + idImagen + "','" + 1 + "'," +
+                consultaSQL = "INSERT INTO tbArticulos(id_categoria, id_imagen, nombreArticulo, descripcionArt, cantidad, precio, fechaCaptura) values('" + int.Parse(a) + "','" + idImagen + "'," +
                     "'" + b + "','" + c + "','" + int.Parse(d) + "','" + double.Parse(e) + "','" + fecha + "')";
 
                 comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
@@ -178,13 +178,12 @@ namespace SAIModelo
 
                 listaProductoID.Add((string)lector["id_producto"].ToString());
                 listaCategoriaID.Add((string)lector["id_categoria"].ToString());
-                //listaUsuarioID.Add((string)lector["id_usuario"].ToString());
                 listaNombreArt.Add((string)lector["nombreArticulo"]);
                 listaDescripcion.Add((string)lector["descripcionArt"]);
                 listaCantidad.Add((string)lector["cantidad"].ToString());
                 listaPrecio.Add((string)lector["precio"].ToString());
                 listaDosIDimagen.Add((string)lector["id_imagen"].ToString());
-                //listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
+                
 
             }
             lector.Close();
@@ -255,13 +254,13 @@ namespace SAIModelo
         }
 
         //************************** 4.0 metodo para guardar ruta de la imagen en la base de datos **************************
-        private void insertarRutaImagen(string rutaImg, string categoriImg)
+        private void insertarRutaImagen(string rutaImg)
         {
 
             try
             {
                 obj.getConexionDB().Open();
-                consultaSQL = "INSERT INTO tbImagenes(id_categoria, nombreImagen, rutaImagen, fechaSubida) values('" + int.Parse(categoriImg) + "','" + "generico" + "','" + rutaImg + "','" + fecha + "')";
+                consultaSQL = "INSERT INTO tbImagenes(rutaImagen, fechaSubida) values('" + rutaImg + "','" + fecha + "')";
                 comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
                 lector = comandoConexion.ExecuteReader();
                 lector.Close();
@@ -278,9 +277,9 @@ namespace SAIModelo
 
         //******************** 4.1 metodo para acceder a insertarRutaImagen()*****************************
 
-        public void getInsertarRutaImagen(string rutaIm, string categoriaImg)
+        public void getInsertarRutaImagen(string rutaIm)
         {
-            insertarRutaImagen(rutaIm, categoriaImg);
+            insertarRutaImagen(rutaIm);
         }
 
         //********************* 5.0 este metodo es para retornar el id de la imagen que se guardara en la tabla articulos ***********************

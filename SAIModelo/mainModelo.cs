@@ -104,7 +104,7 @@ namespace SAIModelo
 
         public void insertarRutaImagenMainModel(string rutaImg, string categoriImg)
         {
-            oProductosModel.getInsertarRutaImagen(rutaImg, categoriImg);
+            oProductosModel.getInsertarRutaImagen(rutaImg);
         }
 
         //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL TABLA ARTICULOS ******************************

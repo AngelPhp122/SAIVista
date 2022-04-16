@@ -30,17 +30,17 @@ namespace SAIVista
         //metodo para llamar al formulario de productos
         private void tsmiProductos_Click(object sender, EventArgs e)
         {
-            Form formularioMenu = new frmProductos();
+            Form formularioMenu1 = new frmProductos();
 
-            formularioMenu.Show();
+            formularioMenu1.Show();
 
         }
 
         private void registrarCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formularioMenu = new frmCompras();
+            Form formularioMenu2 = new frmCompras();
 
-            formularioMenu.Show();
+            formularioMenu2.Show();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -65,9 +65,9 @@ namespace SAIVista
 
         private void reporteComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formularioMenu = new frmReporteCompras();
+            Form formularioMenu3 = new frmReporteCompras();
 
-            formularioMenu.Show();
+            formularioMenu3.Show();
         }
 
         private void registroClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +82,20 @@ namespace SAIVista
             Form formularioMenu = new frmConsultaCliente();
 
             formularioMenu.Show();
+        }
+
+
+
+        private void homeForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void venderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formularioMeno5 = new frmVentas();
+
+            formularioMeno5.Show(); 
         }
     }
 }
