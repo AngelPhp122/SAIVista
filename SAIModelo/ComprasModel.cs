@@ -156,66 +156,47 @@ namespace SAIModelo
 
             string[] temporalIDimagen;
 
-            var listaComprasID = new List<string>();
-            var listaProductoID = new List<string>();
+            var listaComprasIDdetalle = new List<string>();
+            var listaProductoNombre = new List<string>();
             var listaImagenID = new List<string>();
             var listaDosIDproImg = new List<string>();
             var listaRutaImagen = new List<string>();
-            var listaNombreCompra = new List<string>();
-            //var listaDescripcion = new List<string>();
+            var listaDescripcion = new List<string>();
             var listaCantidad = new List<string>();
             var listaPrecio = new List<string>();
-            var listaNumFactura = new List<string>();
-            //var listaDescuento = new List<string>();
-            var listaUsuarioID = new List<string>();
-            var listaProveedorID = new List<string>();
-            var listaCompraDetalleID = new List<string>();
-            var listaFechaCompra = new List<string>();
+            var listaIVA = new List<string>();
+            var listaDescuento = new List<string>();
+            var listaCompraEncabezadoID = new List<string>();
+            var listaTotalCompra = new List<string>();
             var listaDosIDPRODUCTO = new List<string>();
 
 
             obj.getConexionDB().Open();
 
-            consultaSQL = "select id_compra, id_usuario, id_proveedor, id_producto, id_compra_detalle, fechaCompra   from tbCompra_encabezado";
+            consultaSQL = "select id_compraDetalle, nombre_productoCom, cantProdComprado, precioProdCompra, IVA_compra, descuentoCompra, descripcionCompraProd, id_compra_encabezado, tCompraD from tbCompra_detalle";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
 
             while (lector.Read())
             {
 
-
-
-                listaComprasID.Add((string)lector["id_compra"].ToString());
-                listaUsuarioID.Add((string)lector["id_usuario"].ToString());
-                listaProveedorID.Add((string)lector["id_proveedor"].ToString());
-                listaProductoID.Add((string)lector["id_producto"].ToString());
-                listaCompraDetalleID.Add((string)lector["id_compra_detalle"].ToString());
-                 listaFechaCompra.Add((string)lector["fechaCompra"].ToString());
-                 //listaFechaCap.Add((string)lector["fechaCaptura"].ToString());
+                listaComprasIDdetalle.Add(lector["id_compraDetalle"].ToString());
+                listaProductoNombre.Add(lector["nombre_productoCom"].ToString());
+                listaCantidad.Add(lector["cantProdComprado"].ToString());
+                listaPrecio.Add(lector["precioProdCompra"].ToString());
+                listaIVA.Add(lector["IVA_compra"].ToString());
+                listaDescuento.Add(lector["descuentoCompra"].ToString());
+                listaDescripcion.Add(lector["descripcionCompraProd"].ToString());
+                listaCompraEncabezadoID.Add(lector["id_compra_encabezado"].ToString());
+                listaTotalCompra.Add(lector["tCompraD"].ToString());
+  
 
             }
             lector.Close();
             obj.getConexionDB().Close();
 
 
-            //separar consultas
-            obj.getConexionDB().Open();
-
-            consultaSQL = "select nombre_productoCom, numFacturaCompra, cantProdComprado, precioProdCompra from tbCompra_detalle";
-            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
-            lector = comandoConexion.ExecuteReader();
-
-            while (lector.Read())
-            {
-                listaNombreCompra.Add((string)lector["nombre_productoCom"].ToString());
-                listaNumFactura.Add((string)lector["numFacturaCompra"].ToString());
-                listaCantidad.Add((string)lector["cantProdComprado"].ToString());
-                listaPrecio.Add((string)lector["precioProdCompra"].ToString());
-            }
-
-            lector.Close();
-            obj.getConexionDB().Close();
-
+           
             //para extraer el id de la imagen y su path
 
             obj.getConexionDB().Open();
@@ -228,15 +209,12 @@ namespace SAIModelo
 
                 listaImagenID.Add(lector["id_imagen"].ToString());
                 listaRutaImagen.Add(lector["rutaImagen"].ToString());
-                //listaIDcompraEncabezado.Add(lector["id_compra"].ToString());
 
             }
             lector.Close();
             obj.getConexionDB().Close();
 
             //consulta para concatenar el ID del producto con la imagen
-
-            
 
             obj.getConexionDB().Open();
             consultaSQL = "Select id_producto, id_imagen from tbArticulos";
@@ -253,7 +231,7 @@ namespace SAIModelo
             obj.getConexionDB().Close();   
 
             datosIdImagenCompras = new string[listaImagenID.Count, 2];
-            datosDtgCompras = new string[listaComprasID.Count, 11];
+            datosDtgCompras = new string[listaComprasIDdetalle.Count, 11];
 
             datosIDprodImg = new string[listaDosIDPRODUCTO.Count, 2];
 
@@ -279,20 +257,20 @@ namespace SAIModelo
 
            
 
-            for (int i = 0; i < listaComprasID.Count; i++)
+            for (int i = 0; i < listaComprasIDdetalle.Count; i++)
             {
 
                 
-                datosDtgCompras[i, 0] = listaComprasID[i];
-                datosDtgCompras[i, 1] = listaUsuarioID[i];
-                datosDtgCompras[i, 2] = listaProveedorID[i];
-                datosDtgCompras[i, 3] = listaProductoID[i];
-                datosDtgCompras[i, 4] = listaCompraDetalleID[i];
-                datosDtgCompras[i, 5] = listaNombreCompra[i];
-                datosDtgCompras[i, 6] = listaNumFactura[i];
-                datosDtgCompras[i, 7] = listaCantidad[i];
-                datosDtgCompras[i, 8] = listaPrecio[i];
-                datosDtgCompras[i, 9] = listaFechaCompra[i];
+                datosDtgCompras[i, 0] = listaComprasIDdetalle[i];
+                datosDtgCompras[i, 1] = listaProductoNombre[i];
+                datosDtgCompras[i, 2] = listaCantidad[i];
+                datosDtgCompras[i, 3] = listaPrecio[i];
+                datosDtgCompras[i, 4] = listaIVA[i];
+                datosDtgCompras[i, 5] = listaDescuento[i];
+                datosDtgCompras[i, 6] = listaDescripcion[i];
+                datosDtgCompras[i, 7] = listaCompraEncabezadoID[i];
+                datosDtgCompras[i, 8] = listaTotalCompra[i];
+                datosDtgCompras[i, 9] = listaImagenID[i];
 
                 for (int x = 0; x < listaImagenID.Count; x++)
                 {
@@ -338,68 +316,59 @@ namespace SAIModelo
         private void datosInsertarTabComprasImagenesModel(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j)
         {
             string [,] datosInsert = new string[1,10];
-            int uIDcompraDetalle = 0;
+            int idCompraEncabezado = 0;
+            double tCompra = 0.0;
+            int idImagen = 0;
 
-            datosInsert[0,0] = a; // nombre_productoCom
-            datosInsert[0,1] = b; // numFacturaCompra
-            datosInsert[0,2] = c; // cantProdComprado
-            datosInsert[0,3] = d; // precioProdCompra
-            datosInsert[0,4] = e; // IVA_compra
-            datosInsert[0,5] = f; // descuentoCompra
-            datosInsert[0,6] = g; // descripcionCompraProd
-            datosInsert[0,7] = h; // idProveedor
-            datosInsert[0,8] = i; // rutaImagen
-            datosInsert[0,9] = j; // categoria
-           // datosInsert[0,9] = j; // 
-           // datosInsert[0,10] = k;// 
+            datosInsert[0,0] = a; // numero de factura
+            datosInsert[0,1] = b; // nombre_productoCom
+            datosInsert[0,2] = c; // cantidad producto
+            datosInsert[0,3] = d; // precio producto
+            datosInsert[0,4] = e; // descripcion compra
+            datosInsert[0,5] = f; // IVA_compra
+            datosInsert[0,6] = g; // descuentoCompra
+            datosInsert[0,7] = h; // proveedor
+            datosInsert[0,8] = i; // categoria
+            datosInsert[0,9] = j; // rutaImagen
 
-            //try
-            //{
-                //insercion de datos a la tabla compraDetalle
-                obj.getConexionDB().Open();
-                consultaSQL = "INSERT INTO tbCompra_detalle (nombre_productoCom, numFacturaCompra, cantProdComprado, precioProdCompra, IVA_compra, descuentoCompra, descripcionCompraProd) values ('"+datosInsert[0,0]+"','"+datosInsert[0,1]+"','"+int.Parse(datosInsert[0,2])+"','"+double.Parse(datosInsert[0,3])+"','"+double.Parse(datosInsert[0,4])+"','"+double.Parse(datosInsert[0,5])+"','"+datosInsert[0,6]+"')";
-                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
-                lector = comandoConexion.ExecuteReader();
+            tCompra = ((int.Parse(c) * double.Parse(d)) + double.Parse(f)) - double.Parse(g);
+            
 
-                lector.Close();
-                obj.getConexionDB().Close();
+            //para retornar e ingresar imagen en su tabla
+           
+            idImagen = idImagenRetorno(j);
 
+            //primero, insercion de datos en la tabla encabezado para poder alojar todos los detalles de compra
 
-                //extraccion del ide de la compraDetalle para combinarlo con la tabla compraCabecera
-                obj.getConexionDB().Open();
-                consultaSQL = "SELECT TOP(1) id_compraDetalle FROM tbCompra_detalle ORDER BY id_compraDetalle DESC";
-                comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
-                lector = comandoConexion.ExecuteReader();
-            string loque;
+            obj.getConexionDB().Open();
+            consultaSQL = "INSERT INTO tbCompra_encabezado (id_proveedor, id_usuario, fechaCompra, numFacturaComp, tCompra) values ('"+h+"','"+2+"','"+fecha+"','"+a+"','"+0.00+"')";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+            lector.Close();
+            obj.getConexionDB().Close();
+
+            //query para obtener el valor del ultimo ID de la compra del encabezado.
+
+            obj.getConexionDB().Open();
+            consultaSQL = "SELECT TOP(1) id_compra FROM tbCompra_encabezado ORDER BY id_compra DESC";
+            comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+
             while (lector.Read())
             {
-
-                 loque = lector["id_compraDetalle"].ToString();
-                uIDcompraDetalle = int.Parse(loque);
+                idCompraEncabezado = int.Parse((lector["id_compra"].ToString()));
             }
-            
+            lector.Close();
+            obj.getConexionDB().Close();
 
-            
+            //segundo, insercion de datos en tabla articulo
 
-                lector.Close ();
-                obj.getConexionDB().Close();
-
-                //llamada al metodo para obtencion del idCategoria
-
-               // int idCat = idCategoriaRetorno(datosInsert[0,9]);
-
-            //insercion de imagen en la tabla mas obtencion de id
-            Console.WriteLine("" + datosInsert[0, 9]);
-                int idIMG = idImagenRetorno(datosInsert[0, 8], int.Parse(datosInsert[0,9]), "generic");
-
-                //Insercion de datos a la tabla articulos para obtener su id
-
-                obj.getConexionDB ().Open();
-                consultaSQL = "INSERT INTO tbArticulos (id_categoria, id_imagen, id_usuario, nombreArticulo, descripcionArt, cantidad, precio, fechaCaptura) values ('" + datosInsert[0, 9] + "','" + idIMG + "','"+1+"','"+datosInsert[0,0]+"','"+datosInsert[0,6]+"','"+int.Parse(datosInsert[0,2])+"','"+double.Parse(datosInsert[0,3])+"','"+fecha+"')";
-                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
-                lector = comandoConexion .ExecuteReader();
-                lector.Close ();
-                obj.getConexionDB () .Close ();
+            obj.getConexionDB().Open();
+            consultaSQL = "INSERT INTO tbArticulos (id_categoria, id_imagen, nombreArticulo, descripcionArt, cantidad, precio, fechaCaptura) values ('"+i+"','"+idImagen+"','"+b+"','"+e+"','"+c+"','"+d+"','"+fecha+"')";
+            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+            lector = comandoConexion.ExecuteReader();
+            lector.Close ();
+            obj.getConexionDB().Close();
 
 
                 //retorno de el id del articulo
@@ -407,31 +376,26 @@ namespace SAIModelo
                 consultaSQL = "SELECT TOP(1) id_producto FROM tbArticulos ORDER BY id_producto DESC";
                 comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
                 lector = comandoConexion.ExecuteReader();
-            int idArticuloRe=0;
-            while (lector.Read()) {
+                 int idArticuloRe=0;
+                  while (lector.Read()) {
 
-                idArticuloRe = int.Parse(lector["id_producto"].ToString());
-            }
+                        idArticuloRe = int.Parse(lector["id_producto"].ToString());
+                     }
              
 
                 lector.Close();
                 obj.getConexionDB().Close();
 
-                
-                //Insercion de datos a la tabla compraCabecera
-                obj.getConexionDB ().Open();
-                consultaSQL = "INSERT INTO tbCompra_encabezado (id_proveedor, id_producto, id_usuario, id_compra_detalle, fechaCompra) values ('"+int.Parse(datosInsert[0,7])+"','"+idArticuloRe+"','"+1+"','"+uIDcompraDetalle+"','"+fecha+"')";
-                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());    
-                lector= comandoConexion .ExecuteReader();   
-                lector.Close () ;
-                obj.getConexionDB ().Close();
 
-           // }catch (Exception)
-           // {
+            //insercion de datos en la tabla compra_detalle
 
-           // }
-                
-            
+            obj.getConexionDB().Open();
+            consultaSQL = "INSERT INTO tbCompra_detalle (nombre_productoCom, cantProdComprado, precioProdCompra, IVA_compra, descuentoCompra, descripcionCompraProd, id_producto, id_compra_encabezado, tCompraD, estadoCompra)" +
+                "values ('"+b+"', '"+int.Parse(c)+"', '"+double.Parse(d)+"','"+double.Parse(f)+"','"+double.Parse(g)+"','"+e+"','"+idArticuloRe+"','"+idCompraEncabezado+"', '"+tCompra+"','"+true+"')";
+            comandoConexion = new SqlCommand (consultaSQL, obj.getConexionDB());
+            lector= comandoConexion.ExecuteReader();
+            lector.Close();
+            obj.getConexionDB().Close ();
         }
 
         public void getDatosInsertarTabComprasImagenes(string a, string b, string c, string d, string e, string f, string g, string h, string i, string j)
@@ -465,15 +429,13 @@ namespace SAIModelo
 
 
         //metodo para insertar datos en la tabla imagen y a su vez obtener el id
-        private int idImagenRetorno(string rutaImagenC, int categoriaId, string nombreImagen)
+        private int idImagenRetorno(string rutaImagenC)
         {
             int idImagenReturn = 0;
-            
 
-            
 
             obj.getConexionDB().Open();
-            consultaSQL = "INSERT INTO tbImagenes (id_categoria, nombreImagen, rutaImagen, fechaSubida) values ('"+categoriaId+"','"+nombreImagen+"','"+rutaImagenC+"','"+fecha+"')";
+            consultaSQL = "INSERT INTO tbImagenes (rutaImagen, fechaSubida) values ('"+rutaImagenC+"','"+fecha+"')";
             comandoConexion= new SqlCommand (consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();  
 
@@ -549,7 +511,7 @@ namespace SAIModelo
             int ProveedorIDr = retornarIDproveedorComp(idProveedorCo);
 
             //inserta nueva image, a su vez se obtendra el ID
-            int idImagenModificarCompra = idImagenRetorno(rutaImagenMod, CategoriaIdr, "POR DEFECTO");
+            int idImagenModificarCompra = idImagenRetorno(rutaImagenMod);
 
 
             //actualiza tabla compra detalle
