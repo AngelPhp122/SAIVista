@@ -16,7 +16,34 @@ namespace SAIModelo
         ComprasModel oComprasModel = new ComprasModel();
         TiposUsuarioModel oTiposUsuarioModel = new TiposUsuarioModel();
         UsuariosModel oUsuarioModel = new UsuariosModel();
-        ReportesModel oReportesModel = new ReportesModel(); 
+        ReportesModel oReportesModel = new ReportesModel();
+        CategoriasModel oCategoriasModel = new CategoriasModel();
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL Categorias ******************************
+
+
+        public DataTable llenar_comboBoxIdUsrCat()
+        {
+            return oCategoriasModel.llenar_comboBoxIdUsrCat();
+        }
+        public DataTable consulta_a_dgvCat()
+        {
+            return oCategoriasModel.consulta_a_dgvCat();
+        }
+
+
+        public Boolean comprobarRegistroCat(string buscar)
+        {
+            return oCategoriasModel.comprobarRegistroCat(buscar);
+        }
+
+        public Boolean instruccion_sqlCat(string opcion, string[] valores)
+        {
+            return oCategoriasModel.instruccion_sqlCat(opcion, valores);
+        }
+
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL Categorias ******************************
 
 
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL USUARIOS ******************************

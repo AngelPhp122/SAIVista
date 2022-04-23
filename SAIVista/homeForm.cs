@@ -97,5 +97,11 @@ namespace SAIVista
 
             formularioMeno5.Show(); 
         }
+
+        private void gestiónDeCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formCat = new frmCategorias();
+            formCat.Show();
+        }
     }
 }
