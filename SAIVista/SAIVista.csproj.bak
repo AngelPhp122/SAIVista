@@ -127,9 +127,6 @@
     </Compile>
     <Compile Include="mainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-	<EmbeddedResource Include="frmCategorias.resx">
-      <DependentUpon>frmCategorias.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
