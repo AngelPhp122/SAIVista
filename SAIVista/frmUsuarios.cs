@@ -145,7 +145,7 @@ namespace SAIVista
             cmTipo.SelectedItem = dtgUsuarios[5, dtgUsuarios.CurrentCell.RowIndex].Value.ToString()
                 +"-"+ dtgUsuarios[6, dtgUsuarios.CurrentCell.RowIndex].Value.ToString();
 
-            if (dtgUsuarios[0, dtgUsuarios.CurrentCell.RowIndex].Value.ToString().Equals("false"))
+            if (dtgUsuarios[7, dtgUsuarios.CurrentCell.RowIndex].Value.ToString().Equals("false"))
                 lblEstado.Text = "Inactivo";
             else
                 lblEstado.Text = "Activo";
