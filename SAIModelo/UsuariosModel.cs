@@ -60,7 +60,7 @@ namespace SAIModelo
             try
             {
                 comando = "select u.id_usuario as ID, u.nombreUser Nombres,u.apellidoUser Apellidos, u.emailUser," +
-                    " u.claveUser, u.id_tipoUser, tu.nombreT Cargo" +
+                    " u.claveUser, u.id_tipoUser, tu.nombreT Cargo, u.estadoU" +
                     " from tbUsuarios u, tbTipo_usuario tu where u.id_tipoUser = tu.idUsuario";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
@@ -123,6 +123,9 @@ namespace SAIModelo
                         comando = "update tbUsuarios set nombreUser = '" + valores[0] + "',apellidoUser = '" + valores[1] + "'" +
                             ",emailUser = '" + valores[2] + "',claveUser = '" + valores[3] + "'" +
                             ",id_tipoUser = '" + valores[4] + "' where id_usuario = '" + valores[5] + "'";
+                        break;
+                    case "baja":
+                        comando = "update tbUsuarios set estadoU = false where id_usuario = '" + valores[0] + "'";
                         break;
                 }
                 cn = con.getConexionDB();
