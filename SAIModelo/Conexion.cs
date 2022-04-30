@@ -15,7 +15,7 @@ namespace SAIModelo
         private string cadenaConexion;
 
         //Conexion Carlos 
-        //private const string servidor = "DESKTOP-LVOSUC0";
+        private const string servidor = "DESKTOP-LVOSUC0";
 
         //Coexion Angel
         private const string servidor = "DESKTOP-37CLJ35";

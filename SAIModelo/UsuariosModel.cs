@@ -36,7 +36,7 @@ namespace SAIModelo
         {
             try
             {
-                comando = "select idUsuario, nombreT from tbTipo_usuario where fechaBaja is null";
+                comando = "select idUsuario, nombreUTipo from tbTipo_usuario where fechaBaja is null";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -60,8 +60,8 @@ namespace SAIModelo
             try
             {
                 comando = "select u.id_usuario as ID, u.nombreUser Nombres,u.apellidoUser Apellidos, u.emailUser," +
-                    " u.claveUser, u.id_tipoUser, tu.nombreT Cargo, u.estadoU" +
-                    " from tbUsuarios u, tbTipo_usuario tu where u.id_tipoUser = tu.idUsuario";
+                    " u.claveUser, u.tipoUser, tu.nombreUTipo Cargo, u.estadoU " +
+                    " from tbUsuarios u, tbTipo_usuario tu where u.tipoUser = tu.idUsuario";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -115,17 +115,17 @@ namespace SAIModelo
                 {
                     case "insertar":
                         comando = "insert into tbUsuarios(nombreUser,apellidoUser,emailUser,claveUser" +
-                            ",id_tipoUser,fechaCapturaU) " +
+                            ",tipoUser,fechaCaptura,estadoU) " +
                             "values('" + valores[0] + "','" + valores[1] + "','" + valores[2] + "'," +
-                            "'" + valores[3] + "','" + valores[4] + "',CURRENT_TIMESTAMP)";
+                            "'" + valores[3] + "','" + valores[4] + "',CURRENT_TIMESTAMP,1)";
                         break;
                     case "actualizar":
                         comando = "update tbUsuarios set nombreUser = '" + valores[0] + "',apellidoUser = '" + valores[1] + "'" +
                             ",emailUser = '" + valores[2] + "',claveUser = '" + valores[3] + "'" +
-                            ",id_tipoUser = '" + valores[4] + "' where id_usuario = '" + valores[5] + "'";
+                            ",tipoUser = '" + valores[4] + "' where id_usuario = '" + valores[5] + "'";
                         break;
                     case "baja":
-                        comando = "update tbUsuarios set estadoU = false where id_usuario = '" + valores[0] + "'";
+                        comando = "update tbUsuarios set estadoU = 0 where id_usuario = '" + valores[0] + "'";
                         break;
                 }
                 cn = con.getConexionDB();

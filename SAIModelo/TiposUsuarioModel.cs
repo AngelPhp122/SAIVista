@@ -35,7 +35,7 @@ namespace SAIModelo
         {
             try
             {
-                comando = "select idUsuario as ID, nombreT Descripcion,fechaAlta Creacion, fechaBaja Baja from tbTipo_usuario";
+                comando = "select idUsuario as ID, nombreUTipo Descripcion,fechaAlta Creacion, fechaBaja Baja from tbTipo_usuario";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -88,10 +88,10 @@ namespace SAIModelo
                 switch (opcion)
                 {
                     case "insertar":
-                        comando = "insert into tbTipo_usuario(nombreT,fechaAlta) values('" + valores[0]+ "',CURRENT_TIMESTAMP)";
+                        comando = "insert into tbTipo_usuario(nombreUTipo,fechaAlta) values('" + valores[0]+ "',CURRENT_TIMESTAMP)";
                         break;
                     case "actualizar":
-                        comando = "update tbTipo_usuario set nombreT = '"+valores[0]+ "' where idUsuario = '"+valores[1]+"'";
+                        comando = "update tbTipo_usuario set nombreUTipo = '" + valores[0]+ "' where idUsuario = '"+valores[1]+"'";
                         break;
                     case "baja":
                         comando = "update tbTipo_usuario set fechaBaja = CURRENT_TIMESTAMP where idUsuario = '" + valores[0] + "'";
