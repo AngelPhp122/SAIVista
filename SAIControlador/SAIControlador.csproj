@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	<Compile Include="CategoriasControl.cs" />
     <Compile Include="ComprasController.cs" />
     <Compile Include="mainController.cs" />
     <Compile Include="ProductosController.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="ReportesController.cs" />
     <Compile Include="TiposUsuarioController.cs" />
     <Compile Include="UsuariosControl.cs" />
+    <Compile Include="VentaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAIModelo\SAIModelo.csproj">

@@ -14,7 +14,33 @@ namespace SAIControlador
         ComprasController oComprasController = new ComprasController();
         TiposUsuarioController oTiposUsuario = new TiposUsuarioController();
         UsuariosControl oUsuario = new UsuariosControl();
-        ReportesController oReportesController = new ReportesController();  
+        ReportesController oReportesController = new ReportesController();
+        CategoriasControl oCategoriasControl = new CategoriasControl();
+
+        //***************** Inicia controladores del mantenimiento de la tabla Categorias ************************************
+
+        public DataTable llenar_comboBoxIdUsrCat()
+        {
+            return oCategoriasControl.llenar_comboBoxIdUsrCat();
+        }
+
+        public DataTable consulta_a_dgvCat()
+        {
+            return oCategoriasControl.consulta_a_dgvCat();
+        }
+
+
+        public Boolean comprobarRegistroCat(string buscar)
+        {
+            return oCategoriasControl.comprobarRegistroCat(buscar);
+        }
+
+        public Boolean instruccion_sqlCat(string opcion, string[] valores)
+        {
+            return oCategoriasControl.instruccion_sqlCat(opcion, valores);
+        }
+
+        //****************************** finaliza controladores del mantenimiento de la tabla Categorias **********************************
 
 
         //***************** Inicia controladores del mantenimiento de la tabla Usuarios ************************************

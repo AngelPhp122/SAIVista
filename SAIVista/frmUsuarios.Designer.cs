@@ -45,6 +45,9 @@
             this.lbTipo = new System.Windows.Forms.Label();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +65,7 @@
             this.dtgUsuarios.Size = new System.Drawing.Size(675, 487);
             this.dtgUsuarios.TabIndex = 51;
             this.dtgUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellContentClick);
+            this.dtgUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsuarios_CellContentClick_1);
             // 
             // btnLimpiar
             // 
@@ -75,7 +79,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(529, 517);
+            this.btnEditar.Location = new System.Drawing.Point(435, 517);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(116, 28);
             this.btnEditar.TabIndex = 46;
@@ -211,11 +215,43 @@
             this.tbEmail.Size = new System.Drawing.Size(202, 22);
             this.tbEmail.TabIndex = 57;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(615, 517);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(116, 28);
+            this.btnEliminar.TabIndex = 58;
+            this.btnEliminar.Text = "Dar de Baja";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.Location = new System.Drawing.Point(12, 499);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 29);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Estado:";
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblEstado.Location = new System.Drawing.Point(119, 499);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(0, 29);
+            this.lblEstado.TabIndex = 60;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 557);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.lbTipo);
@@ -261,5 +297,8 @@
         private System.Windows.Forms.Label lbTipo;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

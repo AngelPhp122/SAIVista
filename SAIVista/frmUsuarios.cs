@@ -28,6 +28,7 @@ namespace SAIVista
             tbClave.Text = "";
             cmTipo.SelectedIndex = 0;
             modificando = false;
+            lblEstado.Text = "";
         }
 
 
@@ -38,6 +39,7 @@ namespace SAIVista
             dtgUsuarios.Columns[3].Visible = false;
             dtgUsuarios.Columns[4].Visible = false;
             dtgUsuarios.Columns[5].Visible = false;
+            dtgUsuarios.Columns[7].Visible = false;
         }
 
 
@@ -142,7 +144,34 @@ namespace SAIVista
             tbClave.Text = dtgUsuarios[4, dtgUsuarios.CurrentCell.RowIndex].Value.ToString();
             cmTipo.SelectedItem = dtgUsuarios[5, dtgUsuarios.CurrentCell.RowIndex].Value.ToString()
                 +"-"+ dtgUsuarios[6, dtgUsuarios.CurrentCell.RowIndex].Value.ToString();
+
+            if (dtgUsuarios[7, dtgUsuarios.CurrentCell.RowIndex].Value.ToString().Equals("False"))
+                lblEstado.Text = "Inactivo";
+            else
+                lblEstado.Text = "Activo";
+
             modificando = true;
+        }
+
+        private void dtgUsuarios_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            string comando;
+            if (modificando)
+            {
+                control.instruccion_sqlUsr("baja", new string[] { tbID.Text });
+                actualizar_consulta();
+                limpiar_campos();
+            }
+            else
+            {
+                MessageBox.Show("Actualmente esta agregando un usuario.\nSi desea dar de baja un usuario seleccione una fila de la tabla y luego presione dar de baja");
+            }
         }
     }
 }

@@ -34,8 +34,8 @@ namespace SAIVista
 
             
 
-            try
-            {
+           // try
+          //  {
                 //validacion de combobox vacio
                 int comprobar1;
                 int comprobar2;
@@ -87,15 +87,15 @@ namespace SAIVista
 
                 }
 
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+         //   }
+          //  catch (Exception ex) {
+         //       MessageBox.Show(ex.Message);
+          //  }
 
             int comprobar;
 
-            try
-            {
+            //try
+          //  {
 
                 comprobar = dtgCompras.Rows.Count;
                 dtgCompras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -109,8 +109,8 @@ namespace SAIVista
                 DataGridViewTextBoxColumn c7 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c8 = new DataGridViewTextBoxColumn();
                 DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
-                DataGridViewTextBoxColumn c10=  new DataGridViewTextBoxColumn();
-                DataGridViewImageColumn   c11 = new DataGridViewImageColumn();
+                DataGridViewImageColumn   c10=  new  DataGridViewImageColumn();
+                //DataGridViewImageColumn   c11 = new DataGridViewImageColumn();
                 
                 //DataGridViewTextBoxColumn c9 = new DataGridViewTextBoxColumn();
 
@@ -118,17 +118,16 @@ namespace SAIVista
                 if (comprobar == 0)
                 {
 
-                    c1.HeaderText = "id compra";
-                    c2.HeaderText = "id usuario";
-                    c3.HeaderText = "id proveedor";
-                    c4.HeaderText = "id producto";
-                    c5.HeaderText = "id compra detalle";
-                    c6.HeaderText = "Nombre Producto";
-                    c7.HeaderText = "Factura No.";
-                    c8.HeaderText = "Cantidad Producto";
-                    c9.HeaderText = "Precio producto";
-                    c10.HeaderText = "fecha de Compra";
-                    c11.HeaderText = "Imagen";
+                    c1.HeaderText = "id detalle";                   
+                    c2.HeaderText = "Nombre Producto";
+                    c3.HeaderText = "Cantidad";
+                    c4.HeaderText = "Precio";
+                    c5.HeaderText = "IVA";
+                    c6.HeaderText = "Descuento";
+                    c7.HeaderText = "Descripcion";
+                    c8.HeaderText = "id encabezado";
+                    c9.HeaderText = "totalCompra";
+                    c10.HeaderText = "imagen";
 
                     dtgCompras.Columns.Add(c1);
                     dtgCompras.Columns.Add(c2);
@@ -140,14 +139,11 @@ namespace SAIVista
                     dtgCompras.Columns.Add(c8);
                     dtgCompras.Columns.Add(c9);
                     dtgCompras.Columns.Add(c10);
-                    dtgCompras.Columns.Add(c11);
-                    
-
-                    dtgCompras.Columns[10].Width = 325;
+                  
                     
                     string[,] c;
                     c = oControladorCompras.datosDtgComprasMainController();
-                    //MessageBox.Show(c[0,9]);
+                    
 
                     if (c.GetLength(0) >= 0)
                     {
@@ -156,14 +152,17 @@ namespace SAIVista
                         for (int i = 0; i < c.GetLength(0); i++)
                         {
 
-                            dtgCompras.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5], c[i,6], c[i,7], c[i,8], c[i,9], Image.FromFile(c[i, 10]));
-                            dtgCompras.Rows[i].Cells[6].Tag = c[i, 10];
+                            dtgCompras.Rows.Add(c[i, 0], c[i, 1], c[i, 2], c[i, 3], c[i, 4], c[i, 5], c[i,6], c[i,7], c[i,8], Image.FromFile(c[i, 10]));
+                            dtgCompras.Rows[i].Cells[9].Tag = c[i, 10];
                             
 
 
                         }
+
+                        
                     }
 
+                   
                 }
                 else
                 {
@@ -178,9 +177,9 @@ namespace SAIVista
                     int indiceA = c.GetLength(0) - 1;
 
 
-                    dtgCompras.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], c[indiceA,6], c[indiceA, 7], c[indiceA,8], c[indiceA, 9], Image.FromFile(c[indiceA, 10]));
-                    dtgCompras.Rows[indiceA].Cells[10].Tag = c[indiceA, 10];
-                    dtgCompras.Columns[10].Width = 325;
+                    dtgCompras.Rows.Add(c[indiceA, 0], c[indiceA, 1], c[indiceA, 2], c[indiceA, 3], c[indiceA, 4], c[indiceA, 5], c[indiceA,6], c[indiceA, 7], c[indiceA,8], Image.FromFile(c[indiceA, 10]));
+                    dtgCompras.Rows[indiceA].Cells[9].Tag = c[indiceA, 10];
+                    dtgCompras.Columns[9].Width = 325;
                 }
 
 
@@ -190,23 +189,23 @@ namespace SAIVista
 
 
 
-            }
-           catch (Exception ex)
-           {
+           // }
+           //catch (Exception ex)
+           //{
 
-               MessageBox.Show(ex.Message);
-            }
+            //   MessageBox.Show(ex.Message);
+           // }
             
         }
 
         //metodo para limpiar cajas
         public void limpiarCajas()
         {
-
+            tbxFactura.Text = ""; //
             cbxCategoria.Text = "";//
             cbxProveedor.Text = "";//
             tbxNombreProducto.Text = "";//
-            txbNumeroFactura.Text = ""; //
+            
             tbxCantProductoComprado.Text = "";//
             tbxPrecioProdCompra.Text = "";//
             tbxDescripcionCompra.Text = "";//
@@ -221,7 +220,7 @@ namespace SAIVista
             string[] datos = new string[10];
 
 
-            if (String.IsNullOrWhiteSpace(tbxNombreProducto.Text) || String.IsNullOrWhiteSpace(cbxCategoria.Text) || String.IsNullOrWhiteSpace(tbxDescripcionCompra.Text) || String.IsNullOrWhiteSpace(tbxCantProductoComprado.Text) || String.IsNullOrWhiteSpace(tbxPrecioProdCompra.Text) || String.IsNullOrWhiteSpace(cbxProveedor.Text) || String.IsNullOrWhiteSpace(txbNumeroFactura.Text) || String.IsNullOrWhiteSpace(tbxIVAcompra.Text)) {
+            if (String.IsNullOrWhiteSpace(tbxNombreProducto.Text) || String.IsNullOrWhiteSpace(cbxCategoria.Text) || String.IsNullOrWhiteSpace(tbxDescripcionCompra.Text) || String.IsNullOrWhiteSpace(tbxCantProductoComprado.Text) || String.IsNullOrWhiteSpace(tbxPrecioProdCompra.Text) || String.IsNullOrWhiteSpace(cbxProveedor.Text) || String.IsNullOrWhiteSpace(tbxFactura.Text) || String.IsNullOrWhiteSpace(tbxIVAcompra.Text)) {
 
                 if (String.IsNullOrWhiteSpace(tbxNombreProducto.Text)) { errorProvider1Compras.SetError(this.tbxNombreProducto, "campos obligatorios"); }
                 if (String.IsNullOrWhiteSpace(cbxCategoria.Text)) { errorProvider1Compras.SetError(this.cbxCategoria, "campos obligatorios"); }
@@ -229,22 +228,23 @@ namespace SAIVista
                 if (String.IsNullOrWhiteSpace(tbxCantProductoComprado.Text)) { errorProvider1Compras.SetError(this.tbxCantProductoComprado, "campos obligatorios"); }
                 if (String.IsNullOrWhiteSpace(tbxPrecioProdCompra.Text)) { errorProvider1Compras.SetError(this.tbxPrecioProdCompra, "campos obligatorios"); }
                 if (String.IsNullOrWhiteSpace(cbxProveedor.Text)){ errorProvider1Compras.SetError(this.cbxProveedor, "campos obligatorios"); }
-                if (String.IsNullOrWhiteSpace(txbNumeroFactura.Text)) { errorProvider1Compras.SetError(this.txbNumeroFactura, "campos obligatorios"); }
                 if (String.IsNullOrWhiteSpace(tbxIVAcompra.Text)) { errorProvider1Compras.SetError(this.tbxIVAcompra, "campos obligatorios"); }
+                if (String.IsNullOrWhiteSpace(tbxFactura.Text)) { errorProvider1Compras.SetError(this.tbxFactura, "campos obligatorios"); }
 
 
             }
             else
             {
                 errorProvider1Compras.Clear();
-                datos[0] = tbxNombreProducto.Text;
-                datos[1] = txbNumeroFactura.Text;
+                datos[0] = tbxFactura.Text;
+                datos[1] = tbxNombreProducto.Text;
                 datos[2] = tbxCantProductoComprado.Text;
                 datos[3] = tbxPrecioProdCompra.Text;
+                datos[4] = tbxDescripcionCompra.Text;
                 double resultIVAComp = ((int.Parse(datos[2])) * (double.Parse(datos[3]))) * IVA;
-                datos[4] = resultIVAComp.ToString();
-                datos[5] = tbxDescuentoComp.Text;
-                datos[6] = tbxDescripcionCompra.Text;
+                datos[5] = resultIVAComp.ToString();
+                datos[6] = tbxDescuentoComp.Text;
+                
 
 
 
@@ -261,13 +261,13 @@ namespace SAIVista
                 {
                     if (cbxCategoria.Text.Equals(idCategorias[j, 1]))
                     {
-                        datos[9] = idCategorias[j, 0];
+                        datos[8] = idCategorias[j, 0];
                     }
                 }
 
-                datos[8] = rutaImagenCompras;
+                datos[9] = rutaImagenCompras;
 
-                MessageBox.Show(datos[9]);
+                MessageBox.Show(datos[7]);
 
                 oControladorCompras.datosInsertarTabComprasImagenesMainController(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8], datos[9]);
 

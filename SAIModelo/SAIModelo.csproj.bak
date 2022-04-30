@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="CategoriasModel.cs" />
     <Compile Include="ComprasModel.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="mainModelo.cs" />

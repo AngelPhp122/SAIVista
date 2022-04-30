@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SAIModelo
 {
-    internal class UsuariosModel
+    internal class CategoriasModel
     {
 
         SqlConnection cn;
@@ -32,11 +32,12 @@ namespace SAIModelo
             catch (Exception) { }
         }
 
-        public DataTable llenar_comboBoxUsr()
+        public DataTable llenar_comboBoxIdUsrCat()
         {
             try
             {
-                comando = "select idUsuario, nombreUTipo from tbTipo_usuario where fechaBaja is null";
+                //comando = "select id_usuario from tbUsuarios";
+                comando = "select id_usuario, nombreUser from tbUsuarios";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -55,13 +56,13 @@ namespace SAIModelo
             }
             return tb;
         }
-        public DataTable consulta_a_dgvUsr()
+        public DataTable consulta_a_dgvCat()
         {
             try
             {
-                comando = "select u.id_usuario as ID, u.nombreUser Nombres,u.apellidoUser Apellidos, u.emailUser," +
-                    " u.claveUser, u.tipoUser, tu.nombreUTipo Cargo, u.estadoU " +
-                    " from tbUsuarios u, tbTipo_usuario tu where u.tipoUser = tu.idUsuario";
+                comando = "select c.id_categoria as ID, u.id_usuario as idUsuario, u.nombreUser as NombreUsuario, c.nombreCategoria" +
+                    " from tbUsuarios as u inner join tbCategoria as c on u.id_usuario = c.id_usuario";
+                //comando = "select id_categoria, id_usuario, nombreCategoria from tbCategoria";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -79,11 +80,11 @@ namespace SAIModelo
         }
 
 
-        public Boolean comprobarRegistroUsr(string buscar)
+        public Boolean comprobarRegistroCat(string buscar)
         {
             try
             {
-                comando = "select id_usuario  from tbUsuarios where id_usuario='" + buscar + "'";
+                comando = "select id_categoria from tbCategoria where id_categoria='" + buscar + "'";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);
                 cn.Open();
@@ -107,25 +108,19 @@ namespace SAIModelo
             return false;
         }
 
-        public Boolean instruccion_sqlUsr(string opcion, string[] valores)
+        public Boolean instruccion_sqlCat(string opcion, string[] valores)
         {
             try
             {
                 switch (opcion)
                 {
                     case "insertar":
-                        comando = "insert into tbUsuarios(nombreUser,apellidoUser,emailUser,claveUser" +
-                            ",tipoUser,fechaCaptura,estadoU) " +
-                            "values('" + valores[0] + "','" + valores[1] + "','" + valores[2] + "'," +
-                            "'" + valores[3] + "','" + valores[4] + "',CURRENT_TIMESTAMP,1)";
+                        comando = "insert into tbCategoria(id_usuario,nombreCategoria,fechaCaptura) " +
+                            "values('" + valores[0] + "','" + valores[1] + "',CURRENT_TIMESTAMP)";
                         break;
                     case "actualizar":
-                        comando = "update tbUsuarios set nombreUser = '" + valores[0] + "',apellidoUser = '" + valores[1] + "'" +
-                            ",emailUser = '" + valores[2] + "',claveUser = '" + valores[3] + "'" +
-                            ",tipoUser = '" + valores[4] + "' where id_usuario = '" + valores[5] + "'";
-                        break;
-                    case "baja":
-                        comando = "update tbUsuarios set estadoU = 0 where id_usuario = '" + valores[0] + "'";
+                        comando = "update tbCategoria set id_usuario = '" + valores[0] + "',nombreCategoria = '" + valores[1] + 
+                            "' where id_categoria = '" + valores[2] + "'";
                         break;
                 }
                 cn = con.getConexionDB();
