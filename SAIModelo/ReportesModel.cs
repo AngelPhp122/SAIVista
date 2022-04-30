@@ -24,42 +24,54 @@ namespace SAIModelo
 
         private string[,] datosReporte(string fechaInicio, string fechaHasta)
         {
-            string[,] arregloDatos;
-
-            var listaNombre = new List<string>();
-            var listaFactura = new List<string>();
-            var listaCantidad = new List<string>();
-            var listaPrecio = new List<string>();
-            var listaDescripcion = new List<string>();
-
-            obj.getConexionDB().Open();
-            consultaSQL = "SELECT nombre_productoCom, numFacturaCompra, cantProdComprado, precioProdCompra, descripcionCompraProd from tbCompra_detalle,tbCompra_encabezado where  fechaCompra >= '" + fechaInicio + "' AND fechaCompra <= '" + fechaHasta + "' AND id_compra = id_compra";
-            comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
-            lector = comandoConexion.ExecuteReader();
-
-            while (lector.Read())
+            try
             {
-                listaNombre.Add(lector["nombre_productoCom"].ToString());
-                listaFactura.Add(lector["numFacturaCompra"].ToString());
-                listaCantidad.Add(lector["cantProdComprado"].ToString());
-                listaPrecio.Add((string)lector["precioProdCompra"].ToString());
-                listaDescripcion.Add((string)lector["descripcionCompraProd"]);
+                string[,] arregloDatos;
 
+                var listaNombre = new List<string>();
+                var listaFactura = new List<string>();
+                var listaCantidad = new List<string>();
+                var listaPrecio = new List<string>();
+                var listaDescripcion = new List<string>();
+
+                obj.getConexionDB().Open();
+                consultaSQL = "SELECT nombre_productoCom, numFacturaComp, cantProdComprado, precioProdCompra, descripcionCompraProd from tbCompra_detalle,tbCompra_encabezado where  fechaCompra >= '" + fechaInicio + "' AND fechaCompra <= '" + fechaHasta + "'";
+                comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
+                lector = comandoConexion.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    listaNombre.Add(lector["nombre_productoCom"].ToString());
+                    listaFactura.Add(lector["numFacturaComp"].ToString());
+                    listaCantidad.Add(lector["cantProdComprado"].ToString());
+                    listaPrecio.Add((string)lector["precioProdCompra"].ToString());
+                    listaDescripcion.Add((string)lector["descripcionCompraProd"]);
+
+                }
+                lector.Close();
+                obj.getConexionDB().Close();
+
+                arregloDatos = new string[listaNombre.Count, 5];
+
+                for (int i = 0; i < listaNombre.Count; i++)
+                {
+                    arregloDatos[i, 0] = listaNombre[i].ToString();
+                    arregloDatos[i, 1] = listaFactura[i].ToString();
+                    arregloDatos[i, 2] = listaCantidad[i].ToString();
+                    arregloDatos[i, 3] = listaPrecio[i].ToString();
+                    arregloDatos[i, 4] = listaDescripcion[i].ToString();
+
+                }
+
+                return arregloDatos;
             }
-
-            arregloDatos = new string[listaNombre.Count, 5];
-
-            for (int i = 0; i < listaNombre.Count; i++)
+            catch (Exception ex)
             {
-                arregloDatos[i,0] = listaNombre[i].ToString();
-                arregloDatos[i,1] = listaFactura[i].ToString();
-                arregloDatos[i,2] = listaCantidad[i].ToString();
-                arregloDatos[i,3] = listaPrecio[i].ToString();
-                arregloDatos[i, 4] = listaDescripcion[i].ToString();
-
+                string[,] arreglo = new string [1,1] ;
+                Console.WriteLine(ex.ToString());
+                arreglo[0, 0] = ex.ToString();
+                return arreglo; 
             }
-
-            return arregloDatos;
 
 
         }
