@@ -25,8 +25,8 @@ namespace SAIModelo
         private void button1_Click(object sender, EventArgs e)
         {
             Form formularioMenu1 = new SAIVista.homeForm();
-
             formularioMenu1.Show();
+            this.Hide();
         }
 
         

@@ -107,7 +107,9 @@ namespace SAIVista
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form Login = new SAIModelo.Login();
+            Login.Show();
+            this.Hide();
         }
 
         private void tsmiInicio_Click(object sender, EventArgs e)
