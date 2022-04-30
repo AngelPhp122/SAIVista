@@ -27,6 +27,7 @@ namespace SAIModelo
             Form formularioMenu1 = new SAIVista.homeForm();
 
             formularioMenu1.Show();
+            this.Hide();
         }
     }
 }
