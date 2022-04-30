@@ -50,6 +50,7 @@
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(313, 20);
             this.txbNombre.TabIndex = 0;
+            this.txbNombre.TextChanged += new System.EventHandler(this.txbNombre_TextChanged);
             // 
             // lblClientes
             // 
