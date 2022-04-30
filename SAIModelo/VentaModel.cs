@@ -36,13 +36,13 @@ namespace SAIModelo
             try
             {
 
-                string query = @"SELECT IdVenta, 
+                string query = @"SELECT id_venta, 
                                    c.nombreCliente +' '+c.apellidoCliente as Cliente,
-                                   Fecha, 
-                                   TotalProductos,
-                                   TotalFacturado 
+                                   fechaVenta, 
+                                   (select COUNT(*) from tbVenta_detalle where id_ventaEncabezado = v.id_venta),
+                                   totalFac 
                               FROM tbVentas_encab v
-                        INNER JOIN tbClientes c on v.IdCliente=c.id_cliente";
+                        INNER JOIN tbClientes c on v.id_cliente=c.id_cliente";
 
 
                 cn = con.getConexionDB();
@@ -120,7 +120,7 @@ namespace SAIModelo
                         var sdas = row[0];
                         if (!string.IsNullOrEmpty(row[0].ToString()))
                         {
-                            query = "INSERT INTO tbVenta_detalle(IdVenta, IdProducto, Valor)";
+                            query = "INSERT INTO tbVenta_detalle(id_ventaEncabezado, id_producto, precioUnitario)";
                             query += $" VALUES({idVenta},{row[0]},{row[2]})";
                             SqlCommand comandoConexion = new SqlCommand(query, conn);
                             SqlDataReader lector = comandoConexion.ExecuteReader();

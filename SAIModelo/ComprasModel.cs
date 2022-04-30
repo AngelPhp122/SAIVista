@@ -516,7 +516,7 @@ namespace SAIModelo
 
             //actualiza tabla compra detalle
             obj.getConexionDB().Open();
-            consultaSQL = "UPDATE tbCompra_detalle SET nombre_productoCom='"+nom+"', numFacturaCompra='"+numF+"', cantProdComprado='"+cantPrCom+"', precioProdCompra='"+prPrCom+"', IVA_compra='"+IVAcompraM+"' , descuentoCompra='"+descuentoCo+"',descripcionCompraProd='"+descrC+"' WHERE id_compraDetalle ='"+idCompraDatos+"'";
+            consultaSQL = "UPDATE tbCompra_detalle SET nombre_productoCom='"+nom+ "', cantProdComprado='"+cantPrCom+"', precioProdCompra='"+prPrCom+"', IVA_compra='"+IVAcompraM+"' , descuentoCompra='"+descuentoCo+"',descripcionCompraProd='"+descrC+ "' WHERE id_compraDetalle ='" + idCompraDatos+"'";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
 
@@ -526,7 +526,7 @@ namespace SAIModelo
 
             //actualiza tabla compra encabezado
             obj.getConexionDB().Open ();
-            consultaSQL = "UPDATE tbCompra_encabezado SET id_proveedor='"+ProveedorIDr+"'  WHERE id_compra_detalle = '"+idCompraDatos+"'";
+            consultaSQL = "UPDATE tbCompra_encabezado SET id_proveedor='"+ProveedorIDr+ "'  WHERE id_compra = '" + idCompraDatos+"'";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
 

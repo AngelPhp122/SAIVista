@@ -124,6 +124,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Login";
             this.Text = "Login";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
