@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="frmCategorias.cs">
+    <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCategorias.Designer.cs">
@@ -125,9 +125,15 @@
     <Compile Include="homeForm.Designer.cs">
       <DependentUpon>homeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-	<EmbeddedResource Include="frmCategorias.resx">
+    <EmbeddedResource Include="frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="homeForm.resx">
       <DependentUpon>homeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

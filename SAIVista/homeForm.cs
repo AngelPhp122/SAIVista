@@ -70,13 +70,14 @@ namespace SAIVista
             formularioMenu3.Show();
         }
 
+        //llamando a los clientes form
         private void registroClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form formularioMenu = new frmClientes();
 
             formularioMenu.Show();
         }
-
+        //llamando a los clientes search form
         private void consultaClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form formularioMenu = new frmConsultaCliente();
@@ -102,6 +103,16 @@ namespace SAIVista
         {
             Form formCat = new frmCategorias();
             formCat.Show();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmiInicio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

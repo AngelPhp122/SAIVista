@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAIModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace SAIVista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new homeForm());
+            Application.Run(new Login());
         }
     }
 }
