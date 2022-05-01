@@ -329,8 +329,11 @@ namespace SAIVista
         private void btnEliminarCompra_Click(object sender, EventArgs e)
         {
             int idEliminar = 0;
+            int cantidadEliminada = 0;
             idEliminar = int.Parse(dtgCompras.SelectedRows[0].Cells[0].Value.ToString());
             dtgCompras.Rows.RemoveAt(dtgCompras.CurrentRow.Index);
+
+            
 
             oControladorCompras.eliminarDatosTabComprasMainController(idEliminar);
 
