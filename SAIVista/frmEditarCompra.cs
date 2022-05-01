@@ -133,21 +133,29 @@ namespace SAIVista
                 {
                     MessageBox.Show("la imagen que usted esta seleccionando ya existe en la base de datos");
                 }
+
+                Form oFormaTablaCompra = new frmCompras();
+
+                Close();
+                oFormaTablaCompra.Show();
             }
         }
 
+        
         public double calculoIVA()
         {
             double calculoIva = 0;
             double multiplicacion = 0;
-            MessageBox.Show(datosCajas[2]);
-            MessageBox.Show(datosCajas[3]);
+           // MessageBox.Show(datosCajas[2]);
+            //MessageBox.Show(datosCajas[3]);
             multiplicacion = (double.Parse(datosCajas[2]) * (double.Parse(datosCajas[3])));
             
             calculoIva = multiplicacion * IVA;
 
             return calculoIva; 
         }
+
+       
 
     }
 }

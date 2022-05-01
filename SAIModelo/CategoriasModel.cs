@@ -60,8 +60,8 @@ namespace SAIModelo
         {
             try
             {
-                comando = "select c.id_categoria as ID, u.id_usuario as idUsuario, u.nombreUser as NombreUsuario, c.nombreCategoria" +
-                    " from tbUsuarios as u inner join tbCategoria as c on u.id_usuario = c.id_usuario";
+                comando = "select c.id_categoria as ID,  c.nombreCategoria" +
+                    " from  tbCategoria as c";
                 //comando = "select id_categoria, id_usuario, nombreCategoria from tbCategoria";
                 cn = con.getConexionDB();
                 sql = new SqlCommand(comando, cn);

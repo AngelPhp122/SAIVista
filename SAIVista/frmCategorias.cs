@@ -126,9 +126,9 @@ namespace SAIVista
         private void dtgCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             tbIDcat.Text = dtgCategorias[0, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
-            cmIdUser.SelectedItem= dtgCategorias[1, dtgCategorias.CurrentCell.RowIndex].Value.ToString()
-                + "-" + dtgCategorias[2, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
-            tbNombreCat.Text = dtgCategorias[3, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
+            //cmIdUser.SelectedItem= dtgCategorias[1, dtgCategorias.CurrentCell.RowIndex].Value.ToString()
+             //   + "-" + dtgCategorias[2, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
+            tbNombreCat.Text = dtgCategorias[1, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
 
             modificando = true;
         }
