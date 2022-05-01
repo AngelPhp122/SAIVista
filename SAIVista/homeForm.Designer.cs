@@ -44,7 +44,6 @@
             this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.registroClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +102,7 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -162,8 +161,7 @@
             // tsmiClientes
             // 
             this.tsmiClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroClientesToolStripMenuItem,
-            this.consultaClientesToolStripMenuItem});
+            this.registroClientesToolStripMenuItem});
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.Size = new System.Drawing.Size(61, 20);
             this.tsmiClientes.Text = "Clientes";
@@ -171,16 +169,9 @@
             // registroClientesToolStripMenuItem
             // 
             this.registroClientesToolStripMenuItem.Name = "registroClientesToolStripMenuItem";
-            this.registroClientesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.registroClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registroClientesToolStripMenuItem.Text = "Registro Clientes";
             this.registroClientesToolStripMenuItem.Click += new System.EventHandler(this.registroClientesToolStripMenuItem_Click);
-            // 
-            // consultaClientesToolStripMenuItem
-            // 
-            this.consultaClientesToolStripMenuItem.Name = "consultaClientesToolStripMenuItem";
-            this.consultaClientesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.consultaClientesToolStripMenuItem.Text = "Consulta Clientes";
-            this.consultaClientesToolStripMenuItem.Click += new System.EventHandler(this.consultaClientesToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
@@ -247,6 +238,7 @@
             this.tsmiSalir.Name = "tsmiSalir";
             this.tsmiSalir.Size = new System.Drawing.Size(96, 22);
             this.tsmiSalir.Text = "Salir";
+            this.tsmiSalir.Click += new System.EventHandler(this.tsmiSalir_Click);
             // 
             // categoriasToolStripMenuItem
             // 
@@ -300,7 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem venderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeCategoríasToolStripMenuItem;

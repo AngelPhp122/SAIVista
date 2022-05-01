@@ -39,14 +39,18 @@
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.dtgClientes = new System.Windows.Forms.DataGridView();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbCodigo = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // txbNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(138, 39);
+            this.txbNombre.Location = new System.Drawing.Point(138, 50);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(313, 20);
             this.txbNombre.TabIndex = 0;
@@ -55,7 +59,7 @@
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
-            this.lblClientes.Location = new System.Drawing.Point(34, 42);
+            this.lblClientes.Location = new System.Drawing.Point(34, 53);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(44, 13);
             this.lblClientes.TabIndex = 1;
@@ -65,7 +69,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(34, 83);
+            this.lblApellido.Location = new System.Drawing.Point(34, 94);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 2;
@@ -73,14 +77,14 @@
             // 
             // txbApellido
             // 
-            this.txbApellido.Location = new System.Drawing.Point(138, 80);
+            this.txbApellido.Location = new System.Drawing.Point(138, 91);
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(313, 20);
             this.txbApellido.TabIndex = 3;
             // 
             // txbTelefono
             // 
-            this.txbTelefono.Location = new System.Drawing.Point(138, 181);
+            this.txbTelefono.Location = new System.Drawing.Point(138, 192);
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(313, 20);
             this.txbTelefono.TabIndex = 7;
@@ -88,7 +92,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(34, 184);
+            this.lblTelefono.Location = new System.Drawing.Point(34, 195);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 6;
@@ -97,7 +101,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(34, 134);
+            this.lblDireccion.Location = new System.Drawing.Point(34, 145);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 5;
@@ -105,7 +109,7 @@
             // 
             // txbDireccion
             // 
-            this.txbDireccion.Location = new System.Drawing.Point(138, 131);
+            this.txbDireccion.Location = new System.Drawing.Point(138, 142);
             this.txbDireccion.Multiline = true;
             this.txbDireccion.Name = "txbDireccion";
             this.txbDireccion.Size = new System.Drawing.Size(313, 20);
@@ -114,7 +118,7 @@
             // txbEmail
             // 
             this.txbEmail.AccessibleName = "txbEmail";
-            this.txbEmail.Location = new System.Drawing.Point(138, 233);
+            this.txbEmail.Location = new System.Drawing.Point(138, 244);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(313, 20);
             this.txbEmail.TabIndex = 9;
@@ -123,7 +127,7 @@
             // 
             this.lblEmail.AccessibleName = "lblEmail";
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(34, 236);
+            this.lblEmail.Location = new System.Drawing.Point(34, 247);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 8;
@@ -134,43 +138,33 @@
             this.btnAceptar.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAceptar.Location = new System.Drawing.Point(442, 358);
+            this.btnAceptar.Location = new System.Drawing.Point(315, 280);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(86, 37);
             this.btnAceptar.TabIndex = 10;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "Guardar";
             this.btnAceptar.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscar.Location = new System.Drawing.Point(48, 358);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(76, 37);
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnActualizar
             // 
             this.btnActualizar.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(171, 358);
+            this.btnActualizar.Location = new System.Drawing.Point(44, 280);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(83, 37);
             this.btnActualizar.TabIndex = 12;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(297, 358);
+            this.btnEliminar.Location = new System.Drawing.Point(170, 280);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(83, 37);
             this.btnEliminar.TabIndex = 13;
@@ -178,14 +172,62 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dtgClientes
+            // 
+            this.dtgClientes.AllowUserToAddRows = false;
+            this.dtgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgClientes.Location = new System.Drawing.Point(11, 322);
+            this.dtgClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgClientes.Name = "dtgClientes";
+            this.dtgClientes.ReadOnly = true;
+            this.dtgClientes.RowHeadersWidth = 51;
+            this.dtgClientes.RowTemplate.Height = 24;
+            this.dtgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgClientes.Size = new System.Drawing.Size(570, 117);
+            this.dtgClientes.TabIndex = 52;
+            this.dtgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgClientes_CellClick);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpiar.Location = new System.Drawing.Point(432, 280);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(83, 37);
+            this.btnLimpiar.TabIndex = 53;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Coidgo";
+            // 
+            // txbCodigo
+            // 
+            this.txbCodigo.Enabled = false;
+            this.txbCodigo.Location = new System.Drawing.Point(138, 12);
+            this.txbCodigo.Name = "txbCodigo";
+            this.txbCodigo.Size = new System.Drawing.Size(313, 20);
+            this.txbCodigo.TabIndex = 54;
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 450);
+            this.ClientSize = new System.Drawing.Size(599, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txbCodigo);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.dtgClientes);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.lblEmail);
@@ -200,6 +242,7 @@
             this.Name = "frmClientes";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,8 +261,11 @@
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView dtgClientes;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txbCodigo;
     }
 }

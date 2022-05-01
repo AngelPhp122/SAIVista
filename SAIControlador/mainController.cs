@@ -16,6 +16,31 @@ namespace SAIControlador
         UsuariosControl oUsuario = new UsuariosControl();
         ReportesController oReportesController = new ReportesController();
         CategoriasControl oCategoriasControl = new CategoriasControl();
+        ClientesController oClientessControl = new ClientesController();
+
+
+        //***************** Inicia controladores del mantenimiento de la tabla Clientes ************************************
+
+       
+        public DataTable consulta_a_dgvCli()
+        {
+            return oClientessControl.consulta_a_dgvCli();
+        }
+
+
+        public Boolean comprobarRegistroCli(string buscar)
+        {
+            return oClientessControl.comprobarRegistroCli(buscar);
+        }
+
+        public Boolean instruccion_sqlCli(string opcion, string[] valores)
+        {
+            return oClientessControl.instruccion_sqlCli(opcion, valores);
+        }
+
+        //****************************** finaliza controladores del mantenimiento de la tabla Clientes **********************************
+
+
 
         //***************** Inicia controladores del mantenimiento de la tabla Categorias ************************************
 

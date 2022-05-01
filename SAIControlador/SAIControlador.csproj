@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="CategoriasControl.cs" />
+    <Compile Include="CategoriasControl.cs" />
+    <Compile Include="ClientesController.cs" />
     <Compile Include="ComprasController.cs" />
     <Compile Include="mainController.cs" />
     <Compile Include="ProductosController.cs" />

@@ -18,6 +18,31 @@ namespace SAIModelo
         UsuariosModel oUsuarioModel = new UsuariosModel();
         ReportesModel oReportesModel = new ReportesModel();
         CategoriasModel oCategoriasModel = new CategoriasModel();
+        ClienteModel oClienteModel = new ClienteModel();
+
+
+        //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL CLIENTES ******************************
+
+
+        public DataTable consulta_a_dgvCli()
+        {
+            return oClienteModel.consulta_a_dgvCli();
+        }
+
+
+        public Boolean comprobarRegistroCli(string buscar)
+        {
+            return oClienteModel.comprobarRegistroCli(buscar);
+        }
+
+        public Boolean instruccion_sqlCli(string opcion, string[] valores)
+        {
+            return oClienteModel.instruccion_sqlCli(opcion, valores);
+        }
+
+
+        //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL CLIENTES ******************************
+
 
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL Categorias ******************************
 
