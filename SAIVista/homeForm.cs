@@ -119,7 +119,7 @@ namespace SAIVista
 
         private void tsmiSalir_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            
         }
     }
 }
