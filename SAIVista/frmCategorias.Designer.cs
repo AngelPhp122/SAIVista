@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.tbNombreCat = new System.Windows.Forms.TextBox();
-            this.cmIdUser = new System.Windows.Forms.ComboBox();
             this.dtgCategorias = new System.Windows.Forms.DataGridView();
             this.btnLimpiarC = new System.Windows.Forms.Button();
             this.btnEditarC = new System.Windows.Forms.Button();
             this.btnAgregarC = new System.Windows.Forms.Button();
             this.lbApellido = new System.Windows.Forms.Label();
-            this.lbNombre = new System.Windows.Forms.Label();
             this.tbIDcat = new System.Windows.Forms.TextBox();
             this.lbID = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -44,20 +42,10 @@
             // 
             // tbNombreCat
             // 
-            this.tbNombreCat.Location = new System.Drawing.Point(20, 236);
+            this.tbNombreCat.Location = new System.Drawing.Point(20, 177);
             this.tbNombreCat.Name = "tbNombreCat";
             this.tbNombreCat.Size = new System.Drawing.Size(202, 22);
             this.tbNombreCat.TabIndex = 73;
-            // 
-            // cmIdUser
-            // 
-            this.cmIdUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmIdUser.FormattingEnabled = true;
-            this.cmIdUser.Location = new System.Drawing.Point(20, 166);
-            this.cmIdUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmIdUser.Name = "cmIdUser";
-            this.cmIdUser.Size = new System.Drawing.Size(202, 24);
-            this.cmIdUser.TabIndex = 71;
             // 
             // dtgCategorias
             // 
@@ -108,21 +96,11 @@
             // 
             this.lbApellido.AutoSize = true;
             this.lbApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbApellido.Location = new System.Drawing.Point(15, 204);
+            this.lbApellido.Location = new System.Drawing.Point(15, 145);
             this.lbApellido.Name = "lbApellido";
             this.lbApellido.Size = new System.Drawing.Size(219, 29);
             this.lbApellido.TabIndex = 63;
             this.lbApellido.Text = "Nombre Categoría";
-            // 
-            // lbNombre
-            // 
-            this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbNombre.Location = new System.Drawing.Point(15, 135);
-            this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(162, 29);
-            this.lbNombre.TabIndex = 61;
-            this.lbNombre.Text = "ID de usuario";
             // 
             // tbIDcat
             // 
@@ -158,13 +136,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 580);
             this.Controls.Add(this.tbNombreCat);
-            this.Controls.Add(this.cmIdUser);
             this.Controls.Add(this.dtgCategorias);
             this.Controls.Add(this.btnLimpiarC);
             this.Controls.Add(this.btnEditarC);
             this.Controls.Add(this.btnAgregarC);
             this.Controls.Add(this.lbApellido);
-            this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.tbIDcat);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.lbTitulo);
@@ -179,13 +155,11 @@
 
         #endregion
         private System.Windows.Forms.TextBox tbNombreCat;
-        private System.Windows.Forms.ComboBox cmIdUser;
         private System.Windows.Forms.DataGridView dtgCategorias;
         private System.Windows.Forms.Button btnLimpiarC;
         private System.Windows.Forms.Button btnEditarC;
         private System.Windows.Forms.Button btnAgregarC;
         private System.Windows.Forms.Label lbApellido;
-        private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.TextBox tbIDcat;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label lbTitulo;
