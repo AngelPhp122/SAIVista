@@ -47,10 +47,6 @@ namespace SAIModelo
         //************************** INICIO DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL Categorias ******************************
 
 
-        public DataTable llenar_comboBoxIdUsrCat()
-        {
-            return oCategoriasModel.llenar_comboBoxIdUsrCat();
-        }
         public DataTable consulta_a_dgvCat()
         {
             return oCategoriasModel.consulta_a_dgvCat();

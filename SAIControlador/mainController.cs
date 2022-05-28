@@ -44,10 +44,6 @@ namespace SAIControlador
 
         //***************** Inicia controladores del mantenimiento de la tabla Categorias ************************************
 
-        public DataTable llenar_comboBoxIdUsrCat()
-        {
-            return oCategoriasControl.llenar_comboBoxIdUsrCat();
-        }
 
         public DataTable consulta_a_dgvCat()
         {

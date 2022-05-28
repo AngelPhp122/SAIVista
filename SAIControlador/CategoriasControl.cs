@@ -11,10 +11,6 @@ namespace SAIControlador
     {
         SAIModelo.mainModelo model = new SAIModelo.mainModelo();
 
-        public DataTable llenar_comboBoxIdUsrCat()
-        {
-            return model.llenar_comboBoxIdUsrCat();
-        }
         public DataTable consulta_a_dgvCat()
         {
             return model.consulta_a_dgvCat();

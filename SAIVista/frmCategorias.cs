@@ -22,7 +22,6 @@ namespace SAIVista
         public void limpiar_campos()
         {
             tbIDcat.Text = "";
-            cmIdUser.SelectedIndex = 0;
             tbNombreCat.Text = "";
             modificando = false;
         }
@@ -43,15 +42,6 @@ namespace SAIVista
             dtgCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgCategorias.AllowUserToDeleteRows = false;
 
-            DataTable tb = control.llenar_comboBoxIdUsrCat();
-
-            cmIdUser.Items.Add("Seleccione");
-            for (int i = 0; i < tb.Rows.Count; i++)
-            {
-                cmIdUser.Items.Add(tb.Rows[i][0] + "-" + tb.Rows[i][1]);
-            }
-            cmIdUser.SelectedIndex = 0;
-
             limpiar_campos();
             actualizar_consulta();
         }
@@ -68,10 +58,8 @@ namespace SAIVista
                         MessageBox.Show("Ya Existe, Ingrese nuevo codigo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
-                    string id_usr = cmIdUser.SelectedItem.ToString();
-                    id_usr = id_usr.Split('-')[0];
 
-                    string[] valores = new string[] { id_usr, tbNombreCat.Text };
+                    string[] valores = new string[] {tbNombreCat.Text};
 
                     control.instruccion_sqlCat("insertar", valores);
 
@@ -97,10 +85,7 @@ namespace SAIVista
             {
                 if (modificando)
                 {
-                    string id_usr = cmIdUser.SelectedItem.ToString();
-                    id_usr = id_usr.Split('-')[0];
-
-                    string[] valores = new string[] { id_usr, tbNombreCat.Text, tbIDcat.Text };
+                    string[] valores = new string[] {tbNombreCat.Text, tbIDcat.Text};
 
                     control.instruccion_sqlCat("actualizar", valores);
                     actualizar_consulta();
@@ -126,10 +111,7 @@ namespace SAIVista
         private void dtgCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             tbIDcat.Text = dtgCategorias[0, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
-            //cmIdUser.SelectedItem= dtgCategorias[1, dtgCategorias.CurrentCell.RowIndex].Value.ToString()
-             //   + "-" + dtgCategorias[2, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
             tbNombreCat.Text = dtgCategorias[1, dtgCategorias.CurrentCell.RowIndex].Value.ToString();
-
             modificando = true;
         }
     }
