@@ -86,12 +86,13 @@
             this.categoriasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1097, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(855, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // tsmiInicio
             // 
+            this.tsmiInicio.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tsmiInicio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem});
             this.tsmiInicio.Name = "tsmiInicio";
@@ -102,12 +103,13 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // tsmiAdminitrar_articulos
             // 
+            this.tsmiAdminitrar_articulos.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tsmiAdminitrar_articulos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiProductos,
             this.tsmiCategoria});
@@ -118,18 +120,19 @@
             // tsmiProductos
             // 
             this.tsmiProductos.Name = "tsmiProductos";
-            this.tsmiProductos.Size = new System.Drawing.Size(130, 22);
+            this.tsmiProductos.Size = new System.Drawing.Size(180, 22);
             this.tsmiProductos.Text = "Productos";
             this.tsmiProductos.Click += new System.EventHandler(this.tsmiProductos_Click);
             // 
             // tsmiCategoria
             // 
             this.tsmiCategoria.Name = "tsmiCategoria";
-            this.tsmiCategoria.Size = new System.Drawing.Size(130, 22);
+            this.tsmiCategoria.Size = new System.Drawing.Size(180, 22);
             this.tsmiCategoria.Text = "Categorias";
             // 
             // comprasToolStripMenuItem
             // 
+            this.comprasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarCompraToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
@@ -139,12 +142,13 @@
             // registrarCompraToolStripMenuItem
             // 
             this.registrarCompraToolStripMenuItem.Name = "registrarCompraToolStripMenuItem";
-            this.registrarCompraToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.registrarCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarCompraToolStripMenuItem.Text = "Registrar Compra";
             this.registrarCompraToolStripMenuItem.Click += new System.EventHandler(this.registrarCompraToolStripMenuItem_Click);
             // 
             // tsmiVenderProducto
             // 
+            this.tsmiVenderProducto.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tsmiVenderProducto.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.venderToolStripMenuItem});
             this.tsmiVenderProducto.Name = "tsmiVenderProducto";
@@ -154,12 +158,13 @@
             // venderToolStripMenuItem
             // 
             this.venderToolStripMenuItem.Name = "venderToolStripMenuItem";
-            this.venderToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.venderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.venderToolStripMenuItem.Text = "Vender";
             this.venderToolStripMenuItem.Click += new System.EventHandler(this.venderToolStripMenuItem_Click);
             // 
             // tsmiClientes
             // 
+            this.tsmiClientes.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tsmiClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroClientesToolStripMenuItem});
             this.tsmiClientes.Name = "tsmiClientes";
@@ -175,6 +180,7 @@
             // 
             // proveedoresToolStripMenuItem
             // 
+            this.proveedoresToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarProveedorToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
@@ -184,11 +190,12 @@
             // registrarProveedorToolStripMenuItem
             // 
             this.registrarProveedorToolStripMenuItem.Name = "registrarProveedorToolStripMenuItem";
-            this.registrarProveedorToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.registrarProveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarProveedorToolStripMenuItem.Text = "Registrar Proveedor";
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tiposUsuarioToolStripMenuItem,
             this.gestionDeUsuariosToolStripMenuItem});
@@ -199,19 +206,20 @@
             // tiposUsuarioToolStripMenuItem
             // 
             this.tiposUsuarioToolStripMenuItem.Name = "tiposUsuarioToolStripMenuItem";
-            this.tiposUsuarioToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tiposUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tiposUsuarioToolStripMenuItem.Text = "Tipos Usuario";
             this.tiposUsuarioToolStripMenuItem.Click += new System.EventHandler(this.tiposUsuarioToolStripMenuItem_Click);
             // 
             // gestionDeUsuariosToolStripMenuItem
             // 
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
-            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
             this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteComprasToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
@@ -221,12 +229,13 @@
             // reporteComprasToolStripMenuItem
             // 
             this.reporteComprasToolStripMenuItem.Name = "reporteComprasToolStripMenuItem";
-            this.reporteComprasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.reporteComprasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reporteComprasToolStripMenuItem.Text = "Reporte Compras";
             this.reporteComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteComprasToolStripMenuItem_Click);
             // 
             // tsmiUsuario
             // 
+            this.tsmiUsuario.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.tsmiUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiSalir});
             this.tsmiUsuario.Name = "tsmiUsuario";
@@ -236,12 +245,13 @@
             // tsmiSalir
             // 
             this.tsmiSalir.Name = "tsmiSalir";
-            this.tsmiSalir.Size = new System.Drawing.Size(96, 22);
+            this.tsmiSalir.Size = new System.Drawing.Size(180, 22);
             this.tsmiSalir.Text = "Salir";
             this.tsmiSalir.Click += new System.EventHandler(this.tsmiSalir_Click);
             // 
             // categoriasToolStripMenuItem
             // 
+            this.categoriasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.categoriasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestiónDeCategoríasToolStripMenuItem});
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
@@ -257,8 +267,12 @@
             // 
             // homeForm
             // 
-            this.ClientSize = new System.Drawing.Size(1097, 361);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackgroundImage = global::SAIVista.Properties.Resources.SAI_Logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(855, 361);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Name = "homeForm";
             this.Load += new System.EventHandler(this.homeForm_Load);
             this.menuStrip1.ResumeLayout(false);

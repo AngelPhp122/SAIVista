@@ -161,5 +161,10 @@ namespace SAIVista
 
             }
         }
+
+        private void txbApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

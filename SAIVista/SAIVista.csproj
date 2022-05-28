@@ -65,12 +65,6 @@
     <Compile Include="frmCompras.Designer.cs">
       <DependentUpon>frmCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultaCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsultaCliente.Designer.cs">
-      <DependentUpon>frmConsultaCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEditarCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,9 +136,6 @@
     <EmbeddedResource Include="frmCompras.resx">
       <DependentUpon>frmCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultaCliente.resx">
-      <DependentUpon>frmConsultaCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarCompra.resx">
       <DependentUpon>frmEditarCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +174,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -231,6 +223,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAI Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -80,9 +80,9 @@ namespace SAIVista
         //llamando a los clientes search form
         private void consultaClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form formularioMenu = new frmConsultaCliente();
+            //Form formularioMenu = new frmConsultaCliente();
 
-            formularioMenu.Show();
+            //formularioMenu.Show();
         }
 
 
@@ -107,7 +107,7 @@ namespace SAIVista
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form Login = new SAIModelo.Login();
+            Form Login = new Login();
             Login.Show();
             this.Hide();
         }

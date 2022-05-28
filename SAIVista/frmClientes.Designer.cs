@@ -81,6 +81,7 @@
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(313, 20);
             this.txbApellido.TabIndex = 3;
+            this.txbApellido.TextChanged += new System.EventHandler(this.txbApellido_TextChanged);
             // 
             // txbTelefono
             // 

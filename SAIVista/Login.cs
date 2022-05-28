@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SAIModelo
+namespace SAIVista
 {
     public partial class Login : Form
     {
@@ -24,7 +24,7 @@ namespace SAIModelo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form formularioMenu1 = new SAIVista.homeForm();
+            Form formularioMenu1 = new homeForm();
             formularioMenu1.Show();
             this.Hide();
         }
@@ -32,6 +32,21 @@ namespace SAIModelo
         private void button2_Click(object sender, EventArgs e)
         {
             //this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           /* try { 
+            
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.Message);
+            }  */ 
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
