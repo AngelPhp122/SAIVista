@@ -55,7 +55,6 @@
             this.tsmiSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeCategoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,8 +221,7 @@
             // 
             this.reportesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteComprasToolStripMenuItem,
-            this.reporteProductosToolStripMenuItem});
+            this.reporteComprasToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -247,7 +245,7 @@
             // tsmiSalir
             // 
             this.tsmiSalir.Name = "tsmiSalir";
-            this.tsmiSalir.Size = new System.Drawing.Size(180, 22);
+            this.tsmiSalir.Size = new System.Drawing.Size(96, 22);
             this.tsmiSalir.Text = "Salir";
             this.tsmiSalir.Click += new System.EventHandler(this.tsmiSalir_Click);
             // 
@@ -266,13 +264,6 @@
             this.gestiónDeCategoríasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gestiónDeCategoríasToolStripMenuItem.Text = "Gestión de categorías";
             this.gestiónDeCategoríasToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeCategoríasToolStripMenuItem_Click);
-            // 
-            // reporteProductosToolStripMenuItem
-            // 
-            this.reporteProductosToolStripMenuItem.Name = "reporteProductosToolStripMenuItem";
-            this.reporteProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporteProductosToolStripMenuItem.Text = "Reporte Productos";
-            this.reporteProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteProductosToolStripMenuItem_Click);
             // 
             // homeForm
             // 
@@ -319,7 +310,6 @@
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeCategoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteProductosToolStripMenuItem;
     }
 }
 
