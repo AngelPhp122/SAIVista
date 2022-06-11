@@ -210,6 +210,13 @@ namespace SAIControlador
             return oReportesController.getRecibeDatosReportesController(fechaInicial, fechaFInal);
         }
 
+
+        public string[,] datosReportesVentasMainController(string fechaInicial, string fechaFInal)
+        {
+            return oReportesController.getRecibeDatosReporteVentasController(fechaInicial, fechaFInal);
+        }
+
+
         //***************************** i Controladores para generar reportes ****************************************************
 
 

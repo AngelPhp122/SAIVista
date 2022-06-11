@@ -23,12 +23,33 @@ namespace SAIControlador
 
         }
 
+        private string[,] recibeDatosReportesVentasController(string fechaInicial, string fechaFinal)
+        {
+
+
+            string[,] datos;
+
+            datos = oReportesMainModel.reportesVentasMainModel(fechaInicial, fechaFinal);
+
+            return datos;
+
+        }
+
         public string [,] getRecibeDatosReportesController(string fechaInicia, string fechaFinal) {
         
         
             return recibeDatosReportesController (fechaInicia, fechaFinal);
         
         }
+
+        public string[,] getRecibeDatosReporteVentasController(string fechaInicia, string fechaFinal)
+        {
+
+
+            return recibeDatosReportesVentasController(fechaInicia, fechaFinal);
+
+        }
+
 
     }
 }
