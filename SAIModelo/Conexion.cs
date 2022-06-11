@@ -17,16 +17,16 @@ namespace SAIModelo
         //Conexion Carlos 
         //private const string servidor = "DESKTOP-LVOSUC0";
 
-        //Coexion Angel
-        //private const string servidor = "DESKTOP-37CLJ35";
+       // Coexion Angel
+        private const string servidor = "SAIDataBase.mssql.somee.com";
 
         //Coexion Moris
-         private const string servidor = "DESKTOP-D8EPUG8";
+         //private const string servidor = "DESKTOP-D8EPUG8";
 
         //Conexion Violeta
-        //private const string servidor = "DESKTOP-8SBOFT9";
+      //  private const string servidor = "DESKTOP-8SBOFT9";
 
-        private const string DBName = "SAIDB";
+        private const string DBName = "SAIDataBase";
 
         public void setConexionDB(SqlConnection conexionBD) { 
         
@@ -43,7 +43,7 @@ namespace SAIModelo
 
         public Conexion() {
 
-            cadenaConexion = "Data Source=" + servidor + ";" + "Initial Catalog=" + DBName + ";" + "Integrated Security = True";//.\\SQLSERVER
+            cadenaConexion = "Data Source=" + servidor + ";" + "Initial Catalog=" + DBName + ";" + "user id=Gramirez_SQLLogin_1; pwd=dr5yknohfs";//.\\SQLSERVER
             conexionDB = new SqlConnection(cadenaConexion);   
 
         }

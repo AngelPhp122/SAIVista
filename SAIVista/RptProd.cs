@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace SAIVista
 {
@@ -15,6 +17,11 @@ namespace SAIVista
         public RptProd()
         {
             InitializeComponent();
+        }
+
+        private void RptProd_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

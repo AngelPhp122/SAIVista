@@ -341,7 +341,7 @@ namespace SAIModelo
             //primero, insercion de datos en la tabla encabezado para poder alojar todos los detalles de compra
 
             obj.getConexionDB().Open();
-            consultaSQL = "INSERT INTO tbCompra_encabezado (id_proveedor, id_usuario, fechaCompra, numFacturaComp, tCompra) values ('"+h+"','"+2+"','"+fecha+"','"+a+"','"+0.00+"')";
+            consultaSQL = "INSERT INTO tbCompra_encabezado (id_proveedor, id_usuario, fechaCompra, numFacturaComp, tCompra) values ('"+h+"','"+1+"','"+fecha+"','"+a+"','"+0.00+"')";
             comandoConexion = new SqlCommand(consultaSQL, obj.getConexionDB());
             lector = comandoConexion.ExecuteReader();
             lector.Close();
@@ -575,7 +575,7 @@ namespace SAIModelo
         }
 
 
-        //************************** Metodo para la eliminacion de la tabla compras detalle y compras encabezados por ID ************************
+        //************************** Metodo para la eliminacion de la tabla compras detalle y compras encabezados por ID *************************
 
         private void eliminarDatoTabCompras(int idCompraEliminar)
         {
