@@ -279,17 +279,19 @@ namespace SAIVista
         {
             if (openFileDialogCompra.ShowDialog() == DialogResult.OK)
             {
-                bool comprobar = true;
-               comprobar =  oControladorCompras.comprobarPathIMGMainController(openFileDialogCompra.FileName);
+               // bool comprobar = true;
 
-                if(comprobar == false) {
-                    rutaImagenCompras = openFileDialogCompra.FileName;
-                }
-                else
-                {
-                    MessageBox.Show("la imagen que usted esta seleccionando ya existe en la base de datos");
-                }
+             //  comprobar =  oControladorCompras.comprobarPathIMGMainController(openFileDialogCompra.FileName);
                 
+                 //   if (comprobar == false)
+                   /// {
+                        rutaImagenCompras = openFileDialogCompra.FileName;
+                    //}
+                    //else
+                    //{
+                     //   MessageBox.Show("la imagen que usted esta seleccionando ya existe en la base de datos");
+                   // }
+               
             }
         }
 

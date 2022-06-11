@@ -127,17 +127,6 @@
     </Compile>
     <Compile Include="mainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RptProd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RptProd.Designer.cs">
-      <DependentUpon>RptProd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SAIDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SAIDBDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,10 +176,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="RptProd.resx">
-      <DependentUpon>RptProd.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -200,17 +185,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SAIDBDataSet.xsc">
-      <DependentUpon>SAIDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SAIDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SAIDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SAIDBDataSet.xss">
-      <DependentUpon>SAIDBDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
