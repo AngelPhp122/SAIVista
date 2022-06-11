@@ -445,7 +445,7 @@ namespace SAIVista
                 //string seleccionFila = dtgArticulos.CurrentRow.ToString();
 
      //           MessageBox.Show("datoSeleccionado "+ seleccionFila);
-
+     // cambios anadidos
 
 
             }
