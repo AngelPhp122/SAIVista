@@ -121,5 +121,12 @@ namespace SAIVista
         {
             
         }
+
+        private void reporteProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form RptProd = new RptProd();
+            RptProd.Show();
+            this.Hide();
+        }
     }
 }

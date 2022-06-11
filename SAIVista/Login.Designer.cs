@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btnLogueo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.linkLabelRegistro = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtUser = new System.Windows.Forms.TextBox();
+            this.TxtPass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnLogueo
@@ -69,6 +68,7 @@
             this.linkLabelRegistro.TabIndex = 2;
             this.linkLabelRegistro.TabStop = true;
             this.linkLabelRegistro.Text = "Deseas Registrarte?";
+            this.linkLabelRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistro_LinkClicked);
             // 
             // label1
             // 
@@ -98,26 +98,27 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Contraseña:";
             // 
-            // txtUser
+            // TxtUser
             // 
-            this.txtUser.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtUser.Location = new System.Drawing.Point(123, 115);
-            this.txtUser.MaxLength = 50;
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(197, 20);
-            this.txtUser.TabIndex = 6;
-            this.txtUser.Tag = "Digite su usuario";
-            this.txtUser.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TxtUser.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.TxtUser.Location = new System.Drawing.Point(123, 115);
+            this.TxtUser.MaxLength = 50;
+            this.TxtUser.Name = "TxtUser";
+            this.TxtUser.Size = new System.Drawing.Size(197, 20);
+            this.TxtUser.TabIndex = 6;
+            this.TxtUser.Tag = "Digite su usuario";
+            this.TxtUser.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // TxtPass
             // 
-            this.textBox2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox2.Location = new System.Drawing.Point(123, 170);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Tag = "Digite su contraseña";
-            this.textBox2.UseSystemPasswordChar = true;
+            this.TxtPass.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TxtPass.Location = new System.Drawing.Point(123, 170);
+            this.TxtPass.Name = "TxtPass";
+            this.TxtPass.Size = new System.Drawing.Size(197, 20);
+            this.TxtPass.TabIndex = 7;
+            this.TxtPass.Tag = "Digite su contraseña";
+            this.TxtPass.UseSystemPasswordChar = true;
+            this.TxtPass.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Login
             // 
@@ -128,8 +129,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(402, 380);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.TxtPass);
+            this.Controls.Add(this.TxtUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -138,8 +139,8 @@
             this.Controls.Add(this.btnLogueo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
+            this.Tag = "f";
             this.Text = "Ingresa al sistema SAI";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
@@ -155,7 +156,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtUser;
+        private System.Windows.Forms.TextBox TxtPass;
     }
 }

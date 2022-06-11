@@ -21,10 +21,10 @@ namespace SAIModelo
         //private const string servidor = "DESKTOP-37CLJ35";
 
         //Coexion Moris
-         //private const string servidor = "DESKTOP-D8EPUG8";
+         private const string servidor = "DESKTOP-D8EPUG8";
 
         //Conexion Violeta
-        private const string servidor = "DESKTOP-8SBOFT9";
+        //private const string servidor = "DESKTOP-8SBOFT9";
 
         private const string DBName = "SAIDB";
 
