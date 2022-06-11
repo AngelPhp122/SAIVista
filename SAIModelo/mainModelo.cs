@@ -214,6 +214,15 @@ namespace SAIModelo
             return arregloDatos; 
         }
 
+        public string[,] reportesVentasMainModel(string fechaINICIAL, string fechaFin)
+        {
+            string[,] arregloDatos;
+
+            arregloDatos = oReportesModel.getDatosReporteVentas(fechaINICIAL, fechaFin);
+
+            return arregloDatos;
+        }
+
         //************************** FIN DE METODOS PARA LLAMADAS PARA ACCESO A DATOS MAINMODEL REPORTES ******************************
 
     }

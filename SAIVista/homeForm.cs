@@ -121,5 +121,13 @@ namespace SAIVista
         {
             this.Close();
         }
+
+        private void reporteVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Form formularioMenu3 = new frmReporteVentas();
+
+            formularioMenu3.Show();
+        }
     }
 }
